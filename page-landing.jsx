@@ -219,7 +219,6 @@ function LandingApp() {
       <Marquee />
       <ServiciosResumen voice={t.voz} />
       <PortafolioResumen voice={t.voz} />
-      <Testimonios />
       <CTAStrip title={v.cta} />
       <Footer />
 
