@@ -142,7 +142,6 @@ function CatalogoApp() {
         lede="Desde el clásico que nunca falla hasta el regalo premium edición limitada. Filtra por familia, entra a cada ficha — sin precios, porque cada producción depende de cantidad, técnica y plazos."
       />
       <CatalogoSection />
-      <Testimonios />
       <CTAStrip />
       <Footer />
     </div>

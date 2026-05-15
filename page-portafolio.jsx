@@ -43,7 +43,6 @@ function PortafolioApp() {
       />
       <Trust />
       <PortafolioGrid />
-      <Testimonios />
       <CTAStrip />
       <Footer />
     </div>
