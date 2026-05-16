@@ -26,7 +26,7 @@ const VOICES = {
   cercano: {
     eyebrow: "Merch & regalos corporativos · Lima, Perú",
     title: (<>¿Necesitas merch?<br/>Te ayudamos a <em>no&nbsp;equivocarte</em>.</>),
-    lede: "Te asesoramos, te acompañamos y vemos juntos cómo hacer todo más fácil. Producción end-to-end con un solo aliado — y los plazos que prometemos, los cumplimos.",
+    lede: "Hacemos todo más fácil para ti. Producción end-to-end acorde a tus necesidades.",
     primary: "Mira el catálogo",
     secondary: "Cómo trabajamos",
     serviciosTitle: (<>Asesoría, producción y logística.<br/><span style={{ color: "var(--accent)" }}>Bajo un solo techo.</span></>),
