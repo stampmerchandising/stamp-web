@@ -214,10 +214,7 @@ function ProcesoResumen() {
       <div className="proceso-timeline">
         {PROCESO.map((s, i) => (
           <Reveal key={s.num} className="proceso-step" delay={i * 60}>
-            <div className="proceso-step-top">
-              {i > 0 && <div className="proceso-connector" />}
-              <div className="proceso-step-icon">{PROCESO_ICONS[i]}</div>
-            </div>
+            <div className="proceso-step-icon">{PROCESO_ICONS[i]}</div>
             <div className="proceso-step-num">{s.num}</div>
             <div className="proceso-step-title">{s.title}</div>
             <div className="proceso-step-desc">{s.desc}</div>

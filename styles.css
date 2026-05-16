@@ -842,36 +842,36 @@ img, svg { display: block; max-width: 100%; }
 .proceso-timeline {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 0;
   margin-top: 56px;
+  position: relative;
+}
+.proceso-timeline::before {
+  content: "";
+  position: absolute;
+  top: 16px;
+  left: calc(10% + 16px); right: calc(10% + 16px);
+  height: 1px;
+  background: var(--line);
 }
 @media (max-width: 900px) {
   .proceso-timeline { grid-template-columns: repeat(3, 1fr); row-gap: 40px; }
+  .proceso-timeline::before { display: none; }
 }
 @media (max-width: 540px) {
   .proceso-timeline { grid-template-columns: 1fr 1fr; }
 }
 .proceso-step {
   display: flex; flex-direction: column; align-items: center;
-  text-align: center; gap: 14px;
-  padding: 0 16px;
-}
-.proceso-step-top {
-  display: flex; align-items: center;
-  width: 100%; position: relative;
-}
-.proceso-connector {
-  flex: 1; height: 1px;
-  background: var(--line);
-  margin-right: 0;
+  text-align: center; gap: 12px;
+  padding: 0 12px;
 }
 .proceso-step-icon {
   color: var(--accent);
-  flex-shrink: 0;
   width: 32px; height: 32px;
   display: flex; align-items: center; justify-content: center;
   background: var(--bg);
   position: relative; z-index: 1;
+  flex-shrink: 0;
 }
 .proceso-step-icon svg { width: 32px; height: 32px; display: block; }
 .proceso-step-num {
