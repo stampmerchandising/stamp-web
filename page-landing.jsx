@@ -211,12 +211,16 @@ function ProcesoResumen() {
           <h2 className="h-section">5 pasos.<br/><span style={{ color: "var(--accent)" }}>Sin sorpresas.</span></h2>
         </Reveal>
       </div>
-      <div className="proceso-resumen-grid">
+      <div className="proceso-timeline">
         {PROCESO.map((s, i) => (
-          <Reveal key={s.num} className="proceso-resumen-step" delay={i * 60}>
-            <div className="proceso-resumen-icon">{PROCESO_ICONS[i]}</div>
-            <div className="proceso-resumen-title">{s.title}</div>
-            <div className="proceso-resumen-desc">{s.desc}</div>
+          <Reveal key={s.num} className="proceso-step" delay={i * 60}>
+            <div className="proceso-step-top">
+              {i > 0 && <div className="proceso-connector" />}
+              <div className="proceso-step-icon">{PROCESO_ICONS[i]}</div>
+            </div>
+            <div className="proceso-step-num">{s.num}</div>
+            <div className="proceso-step-title">{s.title}</div>
+            <div className="proceso-step-desc">{s.desc}</div>
           </Reveal>
         ))}
       </div>

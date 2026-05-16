@@ -839,56 +839,53 @@ img, svg { display: block; max-width: 100%; }
 }
 
 /* ---------- proceso resumen (landing) ---------- */
-.proceso-resumen-grid {
+.proceso-timeline {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 1px;
+  gap: 0;
+  margin-top: 56px;
+}
+@media (max-width: 900px) {
+  .proceso-timeline { grid-template-columns: repeat(3, 1fr); row-gap: 40px; }
+}
+@media (max-width: 540px) {
+  .proceso-timeline { grid-template-columns: 1fr 1fr; }
+}
+.proceso-step {
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center; gap: 14px;
+  padding: 0 16px;
+}
+.proceso-step-top {
+  display: flex; align-items: center;
+  width: 100%; position: relative;
+}
+.proceso-connector {
+  flex: 1; height: 1px;
   background: var(--line);
-  border: 1px solid var(--line);
-  margin-top: 48px;
+  margin-right: 0;
 }
-@media (max-width: 1000px) {
-  .proceso-resumen-grid { grid-template-columns: repeat(3, 1fr); }
-}
-@media (max-width: 560px) {
-  .proceso-resumen-grid { grid-template-columns: 1fr 1fr; }
-}
-@media (max-width: 380px) {
-  .proceso-resumen-grid { grid-template-columns: 1fr; }
-}
-.proceso-resumen-step {
-  background: var(--bg);
-  display: flex; flex-direction: column; gap: 12px;
-  padding: 28px 24px 24px;
-  position: relative;
-  overflow: hidden;
-  transition: background .2s;
-}
-.proceso-resumen-step::after {
-  content: "";
-  position: absolute; top: 0; left: 0; right: 0;
-  height: 2px;
-  background: var(--accent);
-  transform: scaleX(0); transform-origin: left;
-  transition: transform .3s ease;
-}
-.proceso-resumen-step:hover { background: var(--subtle); }
-.proceso-resumen-step:hover::after { transform: scaleX(1); }
-.proceso-resumen-icon {
+.proceso-step-icon {
   color: var(--accent);
   flex-shrink: 0;
+  width: 48px; height: 48px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--bg);
+  position: relative; z-index: 1;
 }
-.proceso-resumen-icon svg {
-  width: 36px; height: 36px;
-  display: block;
+.proceso-step-icon svg { width: 44px; height: 44px; display: block; }
+.proceso-step-num {
+  font-family: "Roboto Mono", monospace;
+  font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--muted);
 }
-.proceso-resumen-title {
-  font-size: 16px; font-weight: 700; letter-spacing: -0.01em;
-  color: var(--fg);
+.proceso-step-title {
+  font-size: 15px; font-weight: 700; letter-spacing: -0.01em;
+  color: var(--fg); margin: 0;
 }
-.proceso-resumen-desc {
-  font-size: 13.5px; line-height: 1.6;
-  color: var(--fg-soft); flex: 1;
+.proceso-step-desc {
+  font-size: 13px; line-height: 1.6;
+  color: var(--fg-soft);
 }
 
 /* ---------- footer (compact strip) ---------- */
