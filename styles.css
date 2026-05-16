@@ -839,12 +839,14 @@ img, svg { display: block; max-width: 100%; }
 }
 .footer-info-col { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
 .footer-k {
+  display: flex; align-items: center; gap: 6px;
   font-family: "Roboto Mono", ui-monospace, monospace;
   font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase;
   color: #9F9F9F;
 }
+.footer-k svg { flex: 0 0 auto; }
 .footer-v {
-  font-size: 20px;
+  font-size: 15.5px;
   color: #FAFAFA;
   line-height: 1.5;
 }
