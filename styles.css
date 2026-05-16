@@ -317,8 +317,7 @@ img, svg { display: block; max-width: 100%; }
 /* ---------- trust (client logo marquee) ---------- */
 .trust {
   background: #0A0A0A; color: #FAFAFA;
-  padding: clamp(72px, 8vw, 120px) 0 clamp(56px, 6vw, 96px);
-  border-bottom: 1px solid #1A1A1A;
+  padding: clamp(72px, 8vw, 120px) 0 0;
   overflow: hidden;
 }
 .trust-head {
