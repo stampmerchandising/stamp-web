@@ -19,7 +19,7 @@ function Trust() {
         <Reveal delay={80} className="trust-head-row">
           <h2 className="trust-h">
             Marcas que volvieron<br />
-            <span style={{ color: "var(--accent)" }}>a pedirnos un segundo lote.</span>
+            <span style={{ color: "#fff" }}>a pedirnos un </span><span style={{ color: "var(--accent)" }}>segundo lote.</span>
           </h2>
           <div className="trust-head-cta">
             <a href="portafolio.html" className="btn btn-primary">
