@@ -1,28 +1,6 @@
 // Catálogo — primero categorías, luego productos por categoría
 
-function CatalogoSection() {
-  // Read category from URL hash so deep-links / refresh keep selection
-  const readHash = () => {
-    if (typeof window === "undefined") return null;
-    const h = (window.location.hash || "").replace(/^#/, "");
-    if (!h) return null;
-    return CATEGORIAS.find(c => c.id === h && c.id !== "all") ? h : null;
-  };
-
-  const [fam, setFam] = React.useState(readHash);
-
-  React.useEffect(() => {
-    const onHash = () => setFam(readHash());
-    window.addEventListener("hashchange", onHash);
-    return () => window.removeEventListener("hashchange", onHash);
-  }, []);
-
-  const goCategory = (id) => {
-    setFam(id);
-    if (id) history.replaceState(null, "", "#" + id);
-    else history.replaceState(null, "", window.location.pathname);
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+function CatalogoSection({ fam, goCategory }) {
 
   // Categories overview
   if (!fam) {
@@ -76,22 +54,6 @@ function CatalogoSection() {
 
   return (
     <section className="section">
-      <div className="cat-header">
-        <button
-          type="button"
-          className="cat-back"
-          onClick={() => goCategory(null)}
-        >
-          <span className="cat-back-arrow" aria-hidden="true">←</span>
-          Categorías
-        </button>
-        <div className="cat-header-meta">
-          <div className="eyebrow">Categoría</div>
-          <h2 className="h-section" style={{ margin: "8px 0 0 0" }}>{cat?.label}</h2>
-        </div>
-        <div className="cat-header-count">{filtered.length} productos</div>
-      </div>
-
       <div className="cat-grid">
         {filtered.map((p, i) => (
           <Reveal key={p.slug} delay={i * 18}>
@@ -133,15 +95,51 @@ function CatalogoSection() {
 }
 
 function CatalogoApp() {
+  const readHash = () => {
+    if (typeof window === "undefined") return null;
+    const h = (window.location.hash || "").replace(/^#/, "");
+    if (!h) return null;
+    return CATEGORIAS.find(c => c.id === h && c.id !== "all") ? h : null;
+  };
+
+  const [fam, setFam] = React.useState(readHash);
+
+  React.useEffect(() => {
+    const onHash = () => setFam(readHash());
+    window.addEventListener("hashchange", onHash);
+    return () => window.removeEventListener("hashchange", onHash);
+  }, []);
+
+  const goCategory = (id) => {
+    setFam(id);
+    if (id) history.replaceState(null, "", "#" + id);
+    else history.replaceState(null, "", window.location.pathname);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const cat = fam ? CATEGORIAS.find(c => c.id === fam) : null;
+  const filtered = fam ? PRODUCTOS.filter(p => p.fam === fam) : [];
+
   return (
     <div className="app">
       <Nav />
-      <PageHero
-        eyebrow="Catálogo · 200+ productos"
-        title={<>Todo lo que puede llevar <em>tu marca</em>.</>}
-        lede="Desde el clásico que nunca falla hasta el regalo premium edición limitada. Filtra por familia, entra a cada ficha — sin precios, porque cada producción depende de cantidad, técnica y plazos."
-      />
-      <CatalogoSection />
+      {cat ? (
+        <PageHero
+          eyebrow={`Catálogo · ${filtered.length} productos`}
+          title={<>{cat.label}</>}
+          crumbs={[
+            { href: "catalogo.html", label: "Catálogo" },
+            { label: cat.label },
+          ]}
+        />
+      ) : (
+        <PageHero
+          eyebrow="Catálogo · 200+ productos"
+          title={<>Todo lo que puede llevar <em>tu marca</em>.</>}
+          lede="Desde el clásico que nunca falla hasta el regalo premium edición limitada. Filtra por familia, entra a cada ficha — sin precios, porque cada producción depende de cantidad, técnica y plazos."
+        />
+      )}
+      <CatalogoSection fam={fam} goCategory={goCategory} />
       <CTAStrip />
       <Footer />
     </div>
