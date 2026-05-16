@@ -138,7 +138,7 @@ function Footer() {
         <div className="footer-brand">
           <StampLogo style={{ height: 34, color: "#FAFAFA" }} />
           <span className="footer-sep" aria-hidden="true"></span>
-          <span className="footer-tag">MERCHANDISING Y REGALOS</span>
+          <span className="footer-tag">MERCHANDISING Y REGALOS CORPORATIVOS</span>
         </div>
         <div className="footer-nav">
           <a href="catalogo.html">Productos</a>
