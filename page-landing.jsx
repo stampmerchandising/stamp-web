@@ -49,11 +49,6 @@ function LandingHero({ voice }) {
   return (
     <section className="hero" id="top">
       <div className="hero-grid">
-        <Reveal className="hero-eyebrow">
-          <span className="dot"></span>
-          <span>{v.eyebrow}</span>
-        </Reveal>
-
         <Reveal delay={80}>
           <h1 className="hero-title">{v.title}</h1>
         </Reveal>
