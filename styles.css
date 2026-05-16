@@ -874,22 +874,15 @@ img, svg { display: block; max-width: 100%; }
 }
 .proceso-resumen-step:hover { background: var(--subtle); }
 .proceso-resumen-step:hover::after { transform: scaleX(1); }
-.proceso-resumen-header {
-  display: flex; align-items: flex-start; justify-content: space-between; gap: 8px;
+.proceso-resumen-icon {
+  width: 48px; height: 48px;
+  border-radius: 14px;
+  background: var(--accent);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; flex-shrink: 0;
 }
-.proceso-resumen-num {
-  font-family: "Roboto Mono", monospace;
-  font-size: 36px; font-weight: 700; line-height: 1;
-  color: var(--accent);
-}
-.proceso-resumen-time {
-  font-family: "Roboto Mono", monospace;
-  font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--accent);
-  border: 1px solid var(--accent);
-  border-radius: 100px;
-  padding: 4px 9px;
-  white-space: nowrap; margin-top: 4px;
+.proceso-resumen-icon svg {
+  width: 22px; height: 22px;
 }
 .proceso-resumen-title {
   font-size: 16px; font-weight: 700; letter-spacing: -0.01em;
