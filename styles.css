@@ -1724,7 +1724,7 @@ body.mood-audaz .footer-logo { color: var(--accent); }
 }
 .marquee-track {
   display: flex; gap: 64px; flex: 0 0 auto;
-  animation: scroll 40s linear infinite;
+  animation: scroll 60s linear infinite;
   white-space: nowrap;
 }
 .no-anim .marquee-track { animation: none; }
