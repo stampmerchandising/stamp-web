@@ -149,9 +149,15 @@ img, svg { display: block; max-width: 100%; }
 .btn:hover { transform: translateY(-1px); }
 .btn-primary { background: var(--accent); color: var(--accent-ink); }
 .btn-primary:hover { background: #0D0D0D; color: #fff; }
-.trust .btn-primary:hover { background: #fff; color: var(--accent); }
-.trust .btn-primary:hover .btn-arrow { background: var(--accent); }
-.trust .btn-primary:hover .btn-arrow svg { color: #fff; }
+.trust .btn-primary:hover,
+.hero .btn-primary:hover,
+.page-hero .btn-primary:hover { background: #fff; color: var(--accent); }
+.trust .btn-primary:hover .btn-arrow,
+.hero .btn-primary:hover .btn-arrow,
+.page-hero .btn-primary:hover .btn-arrow { background: var(--accent); }
+.trust .btn-primary:hover .btn-arrow svg,
+.hero .btn-primary:hover .btn-arrow svg,
+.page-hero .btn-primary:hover .btn-arrow svg { color: #fff; }
 .btn-ghost { background: transparent; color: var(--fg); border-color: var(--line); }
 .btn-ghost:hover { border-color: var(--fg); }
 .btn-dark { background: #FAFAFA; color: #0A0A0A; }
