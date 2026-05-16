@@ -181,7 +181,7 @@ function Footer() {
 
       <div className="footer-row footer-row-bottom">
         <span className="footer-copy">
-          © Stamp SAC 2026 - Todos los derechos reservados.
+          © 2026 Stamp SAC. Todos los derechos reservados.
         </span>
         <div className="footer-social">
           <a href="#" className="footer-social-btn" aria-label="Instagram">
