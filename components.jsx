@@ -150,22 +150,32 @@ function Footer() {
 
       <div className="footer-row footer-row-info">
         <div className="footer-info-col">
-          <div className="footer-k">Correo</div>
+          <div className="footer-k">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{marginRight:6,verticalAlign:"middle"}}><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+            Correo
+          </div>
           <a className="footer-v" href="mailto:hola@stamp.com.pe">hola@stamp.com.pe</a>
         </div>
         <div className="footer-info-col">
-          <div className="footer-k">Teléfono</div>
+          <div className="footer-k">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{marginRight:6,verticalAlign:"middle"}}><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.86 19.86 0 0 1 3.09 4.18 2 2 0 0 1 5.07 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L9.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+            Teléfono
+          </div>
           <a className="footer-v" href="tel:+51981423207">+51 981 423 207</a>
         </div>
         <div className="footer-info-col">
-          <div className="footer-k">Estudio</div>
-          <div className="footer-v">Calle Manuel Gonzales Olaechea 450,
-San Isidro — Lima, Perú</div>
+          <div className="footer-k">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{marginRight:6,verticalAlign:"middle"}}><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            Dirección
+          </div>
+          <div className="footer-v">Calle Manuel Gonzales Olaechea 450<br/>San Isidro, Lima — Perú</div>
         </div>
         <div className="footer-info-col">
-          <div className="footer-k">Horario</div>
-          <div className="footer-v">Lun–Vie · 9:30–18:30
-Sábado · 10:00–14:00</div>
+          <div className="footer-k">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{marginRight:6,verticalAlign:"middle"}}><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            Horario
+          </div>
+          <div className="footer-v">Lun–Vie · 9:30–18:30<br/>Sábado · 10:00–14:00</div>
         </div>
       </div>
 
