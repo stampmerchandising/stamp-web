@@ -233,9 +233,9 @@ function LandingApp() {
     <div className="app">
       <Nav />
       <LandingHero voice={t.voz} />
+      <Marquee />
       <ProcesoResumen />
       <Trust />
-      <Marquee />
       <ServiciosResumen voice={t.voz} />
       <PortafolioResumen voice={t.voz} />
       <CTAStrip title={v.cta} />
