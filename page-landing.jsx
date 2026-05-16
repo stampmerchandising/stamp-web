@@ -237,7 +237,6 @@ function LandingApp() {
       <ProcesoResumen />
       <Trust />
       <ServiciosResumen voice={t.voz} />
-      <PortafolioResumen voice={t.voz} />
       <CTAStrip title={v.cta} />
       <Footer />
 
