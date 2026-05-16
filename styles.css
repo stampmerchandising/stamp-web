@@ -375,7 +375,6 @@ img, svg { display: block; max-width: 100%; }
   display: flex; align-items: center; gap: 72px;
   animation: trust-marquee 42s linear infinite;
   flex-shrink: 0;
-  padding-right: 72px;
   will-change: transform;
 }
 .trust-logo {
@@ -389,7 +388,7 @@ img, svg { display: block; max-width: 100%; }
 .trust-logo img { display: block; width: auto; }
 @keyframes trust-marquee {
   from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  to   { transform: translateX(-25%); }
 }
 
 /* ---------- service cards ---------- */
@@ -1727,12 +1726,11 @@ body.mood-audaz .footer-logo { color: var(--accent); }
   display: flex; gap: 64px; flex: 0 0 auto;
   animation: scroll 40s linear infinite;
   white-space: nowrap;
-  padding-right: 64px;
 }
 .no-anim .marquee-track { animation: none; }
 @keyframes scroll {
   from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  to   { transform: translateX(-25%); }
 }
 .marquee-item {
   font-family: "Roboto", sans-serif;

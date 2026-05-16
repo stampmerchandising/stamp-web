@@ -1,9 +1,10 @@
 // Shared section primitives used across multiple pages
 
 function Trust() {
+  const logos = [...CLIENTS, ...CLIENTS, ...CLIENTS, ...CLIENTS];
   const row = (
     <div className="trust-track">
-      {CLIENTS.concat(CLIENTS).map((c, i) => (
+      {logos.map((c, i) => (
         <div className="trust-logo" key={c.name + "-" + i} title={c.name}>
           <img src={c.logo} alt={c.name} style={{ height: c.h, width: "auto" }} />
         </div>
@@ -45,20 +46,18 @@ function Marquee({ items }) {
   "Sí, despachamos a provincia"];
 
   const list = items || defaults;
-  const row =
-  <div className="marquee-track">
-      {list.map((t, i) =>
-    <span className="marquee-item" key={i}>
-          {t}
-          <Star />
-        </span>
-    )}
-    </div>;
+  const repeated = [...list, ...list, ...list, ...list];
 
   return (
     <div className="marquee" aria-hidden="true">
-      {row}
-      {row}
+      <div className="marquee-track">
+        {repeated.map((t, i) =>
+          <span className="marquee-item" key={i}>
+            {t}
+            <Star />
+          </span>
+        )}
+      </div>
     </div>);
 
 }
