@@ -405,19 +405,44 @@ img, svg { display: block; max-width: 100%; }
   padding: clamp(36px, 4vw, 56px) var(--pad-x);
   display: flex; flex-direction: column; gap: 18px;
   position: relative; min-height: 320px;
+  overflow: hidden;
   transition: background .25s;
 }
+.service::before {
+  content: "";
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--accent);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .3s ease;
+}
 .service:hover { background: var(--subtle); }
+.service:hover::before { transform: scaleX(1); }
+.service-top {
+  display: flex; align-items: center; justify-content: space-between;
+}
 .service-idx {
   font-family: "Roboto Mono", ui-monospace, monospace;
-  font-size: 12px; letter-spacing: 0.18em;
-  color: var(--muted);
+  font-size: 11px; letter-spacing: 0.2em;
+  color: var(--accent);
 }
 .service-title { margin: 0; }
-.service-desc { color: var(--fg-soft); font-size: 16px; max-width: 38ch; }
-.service-tags {
-  display: flex; flex-wrap: wrap; gap: 8px;
-  margin-top: auto; padding-top: 18px;
+.service-desc { color: var(--fg-soft); font-size: 16px; line-height: 1.55; max-width: 38ch; }
+.service-includes {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-direction: column; gap: 8px;
+  margin-top: auto; padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+.service-includes li {
+  font-size: 13.5px; color: var(--fg-soft);
+  display: flex; align-items: flex-start; gap: 10px;
+  line-height: 1.4;
+}
+.service-includes li::before {
+  content: "→";
+  color: var(--accent);
+  flex-shrink: 0; font-size: 12px; margin-top: 1px;
 }
 .tag {
   font-family: "Roboto Mono", ui-monospace, monospace;
@@ -817,38 +842,62 @@ img, svg { display: block; max-width: 100%; }
 .proceso-resumen-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 2px;
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
   margin-top: 48px;
 }
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
   .proceso-resumen-grid { grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 560px) {
+  .proceso-resumen-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 380px) {
   .proceso-resumen-grid { grid-template-columns: 1fr; }
 }
 .proceso-resumen-step {
-  display: flex; flex-direction: column; gap: 10px;
-  padding: 28px 24px;
-  border: 1px solid var(--line);
+  background: var(--bg);
+  display: flex; flex-direction: column; gap: 12px;
+  padding: 28px 24px 24px;
+  position: relative;
+  overflow: hidden;
+  transition: background .2s;
+}
+.proceso-resumen-step::after {
+  content: "";
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .3s ease;
+}
+.proceso-resumen-step:hover { background: var(--subtle); }
+.proceso-resumen-step:hover::after { transform: scaleX(1); }
+.proceso-resumen-header {
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 8px;
 }
 .proceso-resumen-num {
   font-family: "Roboto Mono", monospace;
-  font-size: 12px; letter-spacing: 0.12em;
+  font-size: 36px; font-weight: 700; line-height: 1;
   color: var(--accent);
-}
-.proceso-resumen-title {
-  font-size: 17px; font-weight: 700; letter-spacing: -0.01em;
-  color: var(--fg);
-}
-.proceso-resumen-desc {
-  font-size: 14px; line-height: 1.55;
-  color: var(--fg-soft); flex: 1;
 }
 .proceso-resumen-time {
   font-family: "Roboto Mono", monospace;
-  font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--muted);
-  margin-top: 4px;
+  font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 100px;
+  padding: 4px 9px;
+  white-space: nowrap; margin-top: 4px;
+}
+.proceso-resumen-title {
+  font-size: 16px; font-weight: 700; letter-spacing: -0.01em;
+  color: var(--fg);
+}
+.proceso-resumen-desc {
+  font-size: 13.5px; line-height: 1.6;
+  color: var(--fg-soft); flex: 1;
 }
 
 /* ---------- footer (compact strip) ---------- */

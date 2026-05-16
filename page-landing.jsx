@@ -120,12 +120,16 @@ function ServiciosResumen({ voice }) {
       <div className="services-grid">
         {top3.map((s, i) => (
           <Reveal key={s.id} className="service" delay={i * 60}>
-            <div className="service-idx">0{i + 1}</div>
+            <div className="service-top">
+              <span className="service-idx">0{i + 1}</span>
+            </div>
             <h3 className="service-title h-card">{s.title}</h3>
             <p className="service-desc">{s.desc}</p>
-            <div className="service-tags">
-              {s.tags.map(t => <span className="tag" key={t}>{t}</span>)}
-            </div>
+            <ul className="service-includes">
+              {s.includes.slice(0, 3).map(item => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
           </Reveal>
         ))}
       </div>
@@ -197,10 +201,12 @@ function ProcesoResumen() {
       <div className="proceso-resumen-grid">
         {PROCESO.map((s, i) => (
           <Reveal key={s.num} className="proceso-resumen-step" delay={i * 60}>
-            <div className="proceso-resumen-num">{s.num}</div>
+            <div className="proceso-resumen-header">
+              <span className="proceso-resumen-num">{s.num}</span>
+              <span className="proceso-resumen-time">{s.time}</span>
+            </div>
             <div className="proceso-resumen-title">{s.title}</div>
             <div className="proceso-resumen-desc">{s.desc}</div>
-            <div className="proceso-resumen-time">{s.time}</div>
           </Reveal>
         ))}
       </div>
