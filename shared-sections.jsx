@@ -162,7 +162,7 @@ function CTAStrip({ title, primary, secondary }) {
       <div className="cta-strip-inner">
         <Reveal as="h2">{title || <>¿Listo para sacarte<br />el merch de la cabeza?<br /><em>Conversemos.</em></>}</Reveal>
         <Reveal delay={120} style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
-          <a href={primary?.href || "https://wa.me/51981423207"} className="btn btn-primary">
+          <a href={primary?.href || "https://wa.me/51981423207"} className="btn btn-primary" target="_blank" rel="noopener noreferrer">
             {primary?.label || "Escribir por WhatsApp"}
             <span className="btn-arrow"><ArrowIcon /></span>
           </a>

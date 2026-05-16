@@ -154,14 +154,14 @@ function Footer() {
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" ><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
             Correo
           </div>
-          <a className="footer-v" href="mailto:hola@stamp.com.pe">hola@stamp.com.pe</a>
+          <a className="footer-v" href="mailto:hola@stamp.com.pe" target="_blank" rel="noopener noreferrer">hola@stamp.com.pe</a>
         </div>
         <div className="footer-info-col">
           <div className="footer-k">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" ><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.86 19.86 0 0 1 3.09 4.18 2 2 0 0 1 5.07 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L9.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
             Teléfono
           </div>
-          <a className="footer-v" href="tel:+51981423207">+51 981 423 207</a>
+          <a className="footer-v" href="tel:+51981423207" target="_blank" rel="noopener noreferrer">+51 981 423 207</a>
         </div>
         <div className="footer-info-col">
           <div className="footer-k">
@@ -184,7 +184,7 @@ function Footer() {
           © 2026 Stamp SAC. Todos los derechos reservados.
         </span>
         <div className="footer-social">
-          <a href="#" className="footer-social-btn" aria-label="Instagram">
+          <a href="#" className="footer-social-btn" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" width="20" height="20">
               <rect x="3" y="3" width="18" height="18" rx="5" />
               <circle cx="12" cy="12" r="4" />
@@ -192,19 +192,19 @@ function Footer() {
             </svg>
             <span>Instagram</span>
           </a>
-          <a href="#" className="footer-social-btn" aria-label="LinkedIn">
+          <a href="#" className="footer-social-btn" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
               <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8h4.56v14H.22V8zm7.5 0h4.37v1.92h.06c.61-1.15 2.1-2.37 4.32-2.37 4.62 0 5.47 3.04 5.47 7v7.45H17.4v-6.6c0-1.58-.03-3.6-2.2-3.6-2.2 0-2.54 1.72-2.54 3.49V22H7.72V8z" />
             </svg>
             <span>LinkedIn</span>
           </a>
-          <a href="#" className="footer-social-btn" aria-label="Facebook">
+          <a href="#" className="footer-social-btn" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
               <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.99 3.66 9.13 8.44 9.88V14.9H7.9V12h2.54V9.8c0-2.51 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.9h-2.33v6.98C18.34 21.13 22 16.99 22 12z" />
             </svg>
             <span>Facebook</span>
           </a>
-          <a href="#" className="footer-social-btn" aria-label="TikTok">
+          <a href="#" className="footer-social-btn" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
               <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.3 0 .58.05.85.13V9.4a6.34 6.34 0 0 0-1-.07A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V8.97a8.16 8.16 0 0 0 4.77 1.52V7.1a4.85 4.85 0 0 1-1.84-.41z" />
             </svg>

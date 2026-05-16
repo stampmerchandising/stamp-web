@@ -92,7 +92,7 @@ function ProductoPage({ product }) {
               Cotizar este producto
               <span className="btn-arrow"><ArrowIcon /></span>
             </a>
-            <a href={`https://wa.me/51981423207?text=${encodeURIComponent("Hola, quisiera info sobre " + p.name)}`} className="btn btn-ghost">
+            <a href={`https://wa.me/51981423207?text=${encodeURIComponent("Hola, quisiera info sobre " + p.name)}`} className="btn btn-ghost" target="_blank" rel="noopener noreferrer">
               Pregunta rápida por WhatsApp
             </a>
           </div>
