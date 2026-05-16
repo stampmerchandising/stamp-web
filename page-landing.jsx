@@ -204,12 +204,6 @@ function ProcesoResumen() {
           </Reveal>
         ))}
       </div>
-      <div style={{ marginTop: 48, display: "flex", justifyContent: "center" }}>
-        <a href="proceso.html" className="btn btn-ghost">
-          Ver proceso completo
-          <span className="btn-arrow"><ArrowIcon /></span>
-        </a>
-      </div>
     </section>
   );
 }

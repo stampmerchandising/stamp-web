@@ -89,7 +89,6 @@ const NAV_LINKS = [
 { href: "index.html", label: "Inicio" },
 { href: "catalogo.html", label: "Productos" },
 { href: "servicios.html", label: "Servicios" },
-{ href: "proceso.html", label: "Proceso" },
 { href: "portafolio.html", label: "Portafolio" }];
 
 
@@ -143,7 +142,6 @@ function Footer() {
         <div className="footer-nav">
           <a href="catalogo.html">Productos</a>
           <a href="servicios.html">Servicios</a>
-          <a href="proceso.html">Proceso</a>
           <a href="portafolio.html">Portafolio</a>
         </div>
       </div>
