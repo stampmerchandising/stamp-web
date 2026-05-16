@@ -149,8 +149,8 @@ img, svg { display: block; max-width: 100%; }
 .btn:hover { transform: translateY(-1px); }
 .btn-primary { background: var(--accent); color: var(--accent-ink); }
 .btn-primary:hover { background: #0D0D0D; color: #fff; }
-.trust .btn-primary:hover { background: var(--accent); color: #fff; }
-.trust .btn-primary:hover .btn-arrow { background: rgba(0,0,0,0.25); }
+.trust .btn-primary:hover { background: #fff; color: var(--accent); }
+.trust .btn-primary:hover .btn-arrow { background: var(--accent); }
 .trust .btn-primary:hover .btn-arrow svg { color: #fff; }
 .btn-ghost { background: transparent; color: var(--fg); border-color: var(--line); }
 .btn-ghost:hover { border-color: var(--fg); }
