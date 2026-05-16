@@ -868,12 +868,12 @@ img, svg { display: block; max-width: 100%; }
 .proceso-step-icon {
   color: var(--accent);
   flex-shrink: 0;
-  width: 48px; height: 48px;
+  width: 32px; height: 32px;
   display: flex; align-items: center; justify-content: center;
   background: var(--bg);
   position: relative; z-index: 1;
 }
-.proceso-step-icon svg { width: 44px; height: 44px; display: block; }
+.proceso-step-icon svg { width: 32px; height: 32px; display: block; }
 .proceso-step-num {
   font-family: "Roboto Mono", monospace;
   font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
