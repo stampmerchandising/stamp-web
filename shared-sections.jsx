@@ -15,15 +15,17 @@ function Trust() {
     <section className="trust">
       <div className="trust-head">
         <Reveal className="eyebrow">→ Algunos clientes</Reveal>
-        <Reveal delay={80} style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 24, flexWrap: "wrap" }}>
+        <Reveal delay={80} className="trust-head-row">
           <h2 className="trust-h">
             Marcas que volvieron<br />
             <span style={{ color: "var(--accent)" }}>a pedirnos un segundo lote.</span>
           </h2>
-          <a href="portafolio.html" className="btn btn-primary" style={{ flexShrink: 0, marginBottom: 6 }}>
-            Ver portafolio
-            <span className="btn-arrow"><ArrowIcon /></span>
-          </a>
+          <div className="trust-head-cta">
+            <a href="portafolio.html" className="btn btn-primary">
+              Ver portafolio
+              <span className="btn-arrow"><ArrowIcon /></span>
+            </a>
+          </div>
         </Reveal>
       </div>
       <div className="trust-marquee" aria-hidden="true">
