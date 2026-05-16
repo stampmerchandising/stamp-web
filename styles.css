@@ -149,6 +149,7 @@ img, svg { display: block; max-width: 100%; }
 .btn:hover { transform: translateY(-1px); }
 .btn-primary { background: var(--accent); color: var(--accent-ink); }
 .btn-primary:hover { background: #0D0D0D; color: #fff; }
+.trust .btn-primary:hover { background: #fff; color: #0A0A0A; }
 .btn-ghost { background: transparent; color: var(--fg); border-color: var(--line); }
 .btn-ghost:hover { border-color: var(--fg); }
 .btn-dark { background: #FAFAFA; color: #0A0A0A; }
