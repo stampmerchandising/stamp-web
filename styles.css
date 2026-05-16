@@ -333,7 +333,7 @@ img, svg { display: block; max-width: 100%; }
   .trust-head-row { grid-template-columns: 1.4fr 1fr; }
 }
 .trust-head-cta {
-  display: flex; justify-content: flex-end;
+  display: flex; justify-content: flex-start;
 }
 .trust .eyebrow { color: #9F9F9F; }
 .trust-h {
