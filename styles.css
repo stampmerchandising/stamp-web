@@ -797,6 +797,44 @@ img, svg { display: block; max-width: 100%; }
   font-weight: 500; letter-spacing: -0.02em;
 }
 
+/* ---------- proceso resumen (landing) ---------- */
+.proceso-resumen-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2px;
+  margin-top: 48px;
+}
+@media (max-width: 900px) {
+  .proceso-resumen-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 560px) {
+  .proceso-resumen-grid { grid-template-columns: 1fr; }
+}
+.proceso-resumen-step {
+  display: flex; flex-direction: column; gap: 10px;
+  padding: 28px 24px;
+  border: 1px solid var(--line);
+}
+.proceso-resumen-num {
+  font-family: "Roboto Mono", monospace;
+  font-size: 12px; letter-spacing: 0.12em;
+  color: var(--accent);
+}
+.proceso-resumen-title {
+  font-size: 17px; font-weight: 700; letter-spacing: -0.01em;
+  color: var(--fg);
+}
+.proceso-resumen-desc {
+  font-size: 14px; line-height: 1.55;
+  color: var(--fg-soft); flex: 1;
+}
+.proceso-resumen-time {
+  font-family: "Roboto Mono", monospace;
+  font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
 /* ---------- footer (compact strip) ---------- */
 .footer {
   background: #0A0A0A; color: #FAFAFA;

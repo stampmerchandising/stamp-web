@@ -185,6 +185,35 @@ function PortafolioResumen({ voice }) {
   );
 }
 
+function ProcesoResumen() {
+  return (
+    <section className="section" id="proceso">
+      <div className="section-head">
+        <Reveal className="eyebrow">Cómo trabajamos</Reveal>
+        <Reveal delay={80}>
+          <h2 className="h-section">5 pasos.<br/><span style={{ color: "var(--accent)" }}>Sin sorpresas.</span></h2>
+        </Reveal>
+      </div>
+      <div className="proceso-resumen-grid">
+        {PROCESO.map((s, i) => (
+          <Reveal key={s.num} className="proceso-resumen-step" delay={i * 60}>
+            <div className="proceso-resumen-num">{s.num}</div>
+            <div className="proceso-resumen-title">{s.title}</div>
+            <div className="proceso-resumen-desc">{s.desc}</div>
+            <div className="proceso-resumen-time">{s.time}</div>
+          </Reveal>
+        ))}
+      </div>
+      <div style={{ marginTop: 48, display: "flex", justifyContent: "center" }}>
+        <a href="proceso.html" className="btn btn-ghost">
+          Ver proceso completo
+          <span className="btn-arrow"><ArrowIcon /></span>
+        </a>
+      </div>
+    </section>
+  );
+}
+
 const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   "voz": "cercano",
   "personalidad": "editorial",
@@ -210,6 +239,7 @@ function LandingApp() {
     <div className="app">
       <Nav />
       <LandingHero voice={t.voz} />
+      <ProcesoResumen />
       <Trust />
       <Marquee />
       <ServiciosResumen voice={t.voz} />
