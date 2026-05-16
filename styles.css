@@ -243,10 +243,10 @@ img, svg { display: block; max-width: 100%; }
 .hero-pillar {
   position: relative;
   padding: clamp(36px, 4.5vw, 60px) clamp(24px, 2.6vw, 36px);
-  display: flex; flex-direction: column;
+  display: flex; flex-direction: row;
   align-items: center; justify-content: center;
-  gap: 14px;
-  text-align: center;
+  gap: 18px;
+  text-align: left;
   border-right: 1px solid rgba(255,255,255,0.08);
   border-bottom: 1px solid rgba(255,255,255,0.08);
   background: #0A0A0A;
