@@ -12,7 +12,7 @@ function ProductoPage({ product }) {
 
   // Update page title/meta for SEO (client-side; in prod you'd SSR these)
   React.useEffect(() => {
-    document.title = `${p.name} — STAMP`;
+    document.title = "Stamp";
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) metaDesc.setAttribute("content", p.lead);
   }, [p.slug]);
