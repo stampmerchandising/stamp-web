@@ -18,9 +18,9 @@ function Trust() {
         <Reveal delay={80} style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 24, flexWrap: "wrap" }}>
           <h2 className="trust-h">
             Marcas que volvieron<br />
-            <span className="trust-muted">a pedirnos un segundo lote.</span>
+            <span style={{ color: "var(--accent)" }}>a pedirnos un segundo lote.</span>
           </h2>
-          <a href="portafolio.html" className="btn btn-ghost" style={{ flexShrink: 0, marginBottom: 6 }}>
+          <a href="portafolio.html" className="btn btn-primary" style={{ flexShrink: 0, marginBottom: 6 }}>
             Ver portafolio
             <span className="btn-arrow"><ArrowIcon /></span>
           </a>
