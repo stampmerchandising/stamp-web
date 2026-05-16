@@ -203,7 +203,6 @@ function ProcesoResumen() {
           <Reveal key={s.num} className="proceso-resumen-step" delay={i * 60}>
             <div className="proceso-resumen-header">
               <span className="proceso-resumen-num">{s.num}</span>
-              <span className="proceso-resumen-time">{s.time}</span>
             </div>
             <div className="proceso-resumen-title">{s.title}</div>
             <div className="proceso-resumen-desc">{s.desc}</div>
