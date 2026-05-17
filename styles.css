@@ -823,49 +823,52 @@ img, svg { display: block; max-width: 100%; }
 }
 
 /* ---------- proceso resumen (landing) ---------- */
-.proceso-timeline {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  margin-top: 56px;
-  position: relative;
+.proceso-flow {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 64px;
+  gap: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }
-.proceso-timeline::before {
-  content: "";
-  position: absolute;
-  top: 26px;
-  left: calc(10% + 26px); right: calc(10% + 26px);
-  height: 1px;
-  background: var(--line);
-}
-@media (max-width: 900px) {
-  .proceso-timeline { grid-template-columns: repeat(3, 1fr); row-gap: 40px; }
-  .proceso-timeline::before { display: none; }
-}
-@media (max-width: 540px) {
-  .proceso-timeline { grid-template-columns: 1fr 1fr; }
-}
+.proceso-flow::-webkit-scrollbar { display: none; }
 .proceso-step {
-  display: flex; flex-direction: column; align-items: flex-start;
-  text-align: left; gap: 14px;
-  padding: 0 12px;
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center; gap: 20px;
+  flex: 1; min-width: 140px;
+  padding: 0 8px;
 }
 .proceso-step-icon {
-  width: 52px; height: 52px;
-  border-radius: 10px;
-  background: rgba(76,35,157,0.1);
-  display: flex; align-items: center; justify-content: center;
   color: var(--accent);
-  position: relative; z-index: 1;
+  width: 88px; height: 88px;
+  display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
 }
-.proceso-step-icon svg { width: 24px; height: 24px; display: block; }
+.proceso-step-icon svg { width: 88px; height: 88px; display: block; }
 .proceso-step-title {
-  font-size: 16px; font-weight: 700; letter-spacing: -0.01em;
+  font-size: 17px; font-weight: 700; letter-spacing: -0.01em;
   color: var(--fg); margin: 0;
 }
 .proceso-step-desc {
-  font-size: 13px; line-height: 1.6;
-  color: var(--fg-soft);
+  font-size: 13.5px; line-height: 1.55;
+  color: var(--fg-soft); max-width: 18ch;
+}
+.proceso-arrow {
+  color: var(--accent);
+  font-size: 22px;
+  margin-top: 33px;
+  flex-shrink: 0;
+  padding: 0 4px;
+  opacity: 0.6;
+}
+@media (max-width: 780px) {
+  .proceso-flow { flex-direction: column; align-items: stretch; gap: 0; overflow-x: visible; }
+  .proceso-step { flex-direction: row; text-align: left; align-items: flex-start; padding: 24px 0; border-bottom: 1px solid var(--line); gap: 20px; }
+  .proceso-step-icon { width: 56px; height: 56px; flex-shrink: 0; }
+  .proceso-step-icon svg { width: 56px; height: 56px; }
+  .proceso-step-desc { max-width: none; }
+  .proceso-arrow { display: none; }
 }
 
 /* ---------- footer (compact strip) ---------- */
