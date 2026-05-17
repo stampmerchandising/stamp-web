@@ -215,15 +215,15 @@ function ProcesoResumen() {
           <h2 className="h-section">Tu pedido,<br/><span style={{ color: "var(--accent)" }}>a solo 5 pasos.</span></h2>
         </Reveal>
       </div>
-      <div className="proceso-flow">
+      <Reveal className="proceso-flow">
         {PROCESO.map((s, i) => (
-          <Reveal key={s.num} className="proceso-step" delay={i * 60}>
+          <div key={s.num} className="proceso-step">
             <div className="proceso-step-icon">{PROCESO_ICONS[i]}</div>
             <div className="proceso-step-title">{s.title}</div>
             <div className="proceso-step-desc">{PROCESO_BODY[i]}</div>
-          </Reveal>
+          </div>
         ))}
-      </div>
+      </Reveal>
     </section>
   );
 }
