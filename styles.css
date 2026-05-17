@@ -860,6 +860,17 @@ img, svg { display: block; max-width: 100%; }
   flex-shrink: 0;
 }
 .proceso-step-icon svg { width: 72px; height: 72px; display: block; }
+
+@keyframes icon-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.proceso-flow.is-in .proceso-step:nth-child(1) .proceso-step-icon { animation: icon-float 3.2s ease-in-out infinite; animation-delay: 0s; }
+.proceso-flow.is-in .proceso-step:nth-child(2) .proceso-step-icon { animation: icon-float 3.6s ease-in-out infinite; animation-delay: 0.5s; }
+.proceso-flow.is-in .proceso-step:nth-child(3) .proceso-step-icon { animation: icon-float 3.0s ease-in-out infinite; animation-delay: 1.0s; }
+.proceso-flow.is-in .proceso-step:nth-child(4) .proceso-step-icon { animation: icon-float 3.8s ease-in-out infinite; animation-delay: 0.3s; }
+.proceso-flow.is-in .proceso-step:nth-child(5) .proceso-step-icon { animation: icon-float 3.4s ease-in-out infinite; animation-delay: 0.8s; }
+.no-anim .proceso-step-icon { animation: none !important; }
 .proceso-step-title {
   font-family: "Roboto", sans-serif;
   font-size: clamp(15px, 1.2vw, 18px); font-weight: 500;
