@@ -40,7 +40,9 @@ function Marquee({ items }) {
   const defaults = [
   "No, no son solo lapiceros",
   "No, no son solo cosas con tu logo",
-  "Sí, primero ves la muestra"];
+  "No, no tienes que hablar con tres proveedores",
+  "Sí, primero ves la muestra",
+  "Sí, hacemos desde cantidades pequeñas"];
 
   const list = items || defaults;
   const repeated = [...list, ...list, ...list, ...list];
