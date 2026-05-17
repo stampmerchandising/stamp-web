@@ -210,15 +210,10 @@ function ProcesoResumen() {
       </div>
       <div className="proceso-flow">
         {PROCESO.map((s, i) => (
-          <React.Fragment key={s.num}>
-            <Reveal className="proceso-step" delay={i * 60}>
-              <div className="proceso-step-icon">{PROCESO_ICONS[i]}</div>
-              <div className="proceso-step-title">{s.title}</div>
-            </Reveal>
-            {i < PROCESO.length - 1 && (
-              <div className="proceso-arrow" aria-hidden="true">→</div>
-            )}
-          </React.Fragment>
+          <Reveal key={s.num} className="proceso-step" delay={i * 60}>
+            <div className="proceso-step-icon">{PROCESO_ICONS[i]}</div>
+            <div className="proceso-step-title">{s.title}</div>
+          </Reveal>
         ))}
       </div>
     </section>

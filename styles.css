@@ -826,49 +826,40 @@ img, svg { display: block; max-width: 100%; }
 .proceso-flow {
   display: flex;
   align-items: flex-start;
-  margin-top: 64px;
-  gap: 0;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
+  margin-top: 72px;
+  position: relative;
 }
-.proceso-flow::-webkit-scrollbar { display: none; }
+.proceso-flow::before {
+  content: '';
+  position: absolute;
+  top: 52px;
+  left: calc(10% + 52px); right: calc(10% + 52px);
+  border-top: 2px dashed var(--line);
+}
 .proceso-step {
   display: flex; flex-direction: column; align-items: center;
-  text-align: center; gap: 20px;
-  flex: 1; min-width: 140px;
-  padding: 0 8px;
+  text-align: center; gap: 24px;
+  flex: 1; padding: 0 8px;
 }
 .proceso-step-icon {
   color: var(--accent);
-  width: 88px; height: 88px;
+  width: 104px; height: 104px;
   display: flex; align-items: center; justify-content: center;
+  background: var(--bg);
+  position: relative; z-index: 1;
   flex-shrink: 0;
 }
-.proceso-step-icon svg { width: 88px; height: 88px; display: block; }
+.proceso-step-icon svg { width: 104px; height: 104px; display: block; }
 .proceso-step-title {
-  font-size: 17px; font-weight: 700; letter-spacing: -0.01em;
+  font-size: 18px; font-weight: 700; letter-spacing: -0.015em;
   color: var(--fg); margin: 0;
 }
-.proceso-step-desc {
-  font-size: 13.5px; line-height: 1.55;
-  color: var(--fg-soft); max-width: 18ch;
-}
-.proceso-arrow {
-  color: var(--accent);
-  font-size: 22px;
-  margin-top: 33px;
-  flex-shrink: 0;
-  padding: 0 4px;
-  opacity: 0.6;
-}
 @media (max-width: 780px) {
-  .proceso-flow { flex-direction: column; align-items: stretch; gap: 0; overflow-x: visible; }
-  .proceso-step { flex-direction: row; text-align: left; align-items: flex-start; padding: 24px 0; border-bottom: 1px solid var(--line); gap: 20px; }
-  .proceso-step-icon { width: 56px; height: 56px; flex-shrink: 0; }
-  .proceso-step-icon svg { width: 56px; height: 56px; }
-  .proceso-step-desc { max-width: none; }
-  .proceso-arrow { display: none; }
+  .proceso-flow { flex-direction: column; gap: 0; }
+  .proceso-flow::before { display: none; }
+  .proceso-step { flex-direction: row; text-align: left; align-items: center; padding: 28px 0; border-bottom: 1px solid var(--line); gap: 24px; }
+  .proceso-step-icon { width: 64px; height: 64px; flex-shrink: 0; }
+  .proceso-step-icon svg { width: 64px; height: 64px; }
 }
 
 /* ---------- footer (compact strip) ---------- */
