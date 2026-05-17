@@ -204,7 +204,7 @@ function ProcesoResumen() {
     <section className="section" id="proceso">
       <div className="section-head">
         <Reveal delay={80}>
-          <h2 className="h-section">Así de fácil<br/><span style={{ color: "var(--accent)" }}>es trabajar con nosotros.</span></h2>
+          <h2 className="h-section">Tu pedido,<br/><span style={{ color: "var(--accent)" }}>a solo 5 pasos.</span></h2>
         </Reveal>
       </div>
       <div className="proceso-flow">
