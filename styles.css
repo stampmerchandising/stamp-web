@@ -862,14 +862,14 @@ img, svg { display: block; max-width: 100%; }
 .proceso-step-icon svg { width: 72px; height: 72px; display: block; }
 
 @keyframes icon-nudge {
-  0%, 14%, 100% { transform: translateY(0); }
-  7% { transform: translateY(-5px); }
+  0%, 14%, 100% { transform: rotate(0deg) scale(1); }
+  7% { transform: rotate(-8deg) scale(1.08); }
 }
-.proceso-flow.is-in .proceso-step:nth-child(1) .proceso-step-icon { animation: icon-nudge 10s ease-in-out infinite 0s; }
-.proceso-flow.is-in .proceso-step:nth-child(2) .proceso-step-icon { animation: icon-nudge 10s ease-in-out infinite 2s; }
-.proceso-flow.is-in .proceso-step:nth-child(3) .proceso-step-icon { animation: icon-nudge 10s ease-in-out infinite 4s; }
-.proceso-flow.is-in .proceso-step:nth-child(4) .proceso-step-icon { animation: icon-nudge 10s ease-in-out infinite 6s; }
-.proceso-flow.is-in .proceso-step:nth-child(5) .proceso-step-icon { animation: icon-nudge 10s ease-in-out infinite 8s; }
+.proceso-flow.is-in .proceso-step:nth-child(1) .proceso-step-icon { animation: icon-nudge 10s cubic-bezier(.2,.7,.2,1) infinite 0s; }
+.proceso-flow.is-in .proceso-step:nth-child(2) .proceso-step-icon { animation: icon-nudge 10s cubic-bezier(.2,.7,.2,1) infinite 2s; }
+.proceso-flow.is-in .proceso-step:nth-child(3) .proceso-step-icon { animation: icon-nudge 10s cubic-bezier(.2,.7,.2,1) infinite 4s; }
+.proceso-flow.is-in .proceso-step:nth-child(4) .proceso-step-icon { animation: icon-nudge 10s cubic-bezier(.2,.7,.2,1) infinite 6s; }
+.proceso-flow.is-in .proceso-step:nth-child(5) .proceso-step-icon { animation: icon-nudge 10s cubic-bezier(.2,.7,.2,1) infinite 8s; }
 .no-anim .proceso-step-icon { animation: none !important; }
 .proceso-step-title {
   font-family: "Roboto", sans-serif;
