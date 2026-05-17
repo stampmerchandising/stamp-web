@@ -200,11 +200,11 @@ const PROCESO_ICONS = [
 ];
 
 const PROCESO_BODY = [
-  "Una idea, una fecha o una foto de referencia. Con eso alcanza para arrancar.",
-  "Te mandamos todo detallado: producto, técnica, plazo y precio final. Sin letra chica.",
-  "Antes de producir el lote, apruebas la muestra. Si algo no calza, lo ajustamos.",
-  "En nuestros talleres en Lima, con revisión pieza por pieza antes de empacar.",
-  "Coordinamos día y hora. Lo llevamos donde lo necesites — tú solo firmas el cargo.",
+  "Escríbenos lo que necesitas. No hace falta tenerlo todo claro todavía.",
+  "Te mandamos la cotización con precios, materiales y tiempos. Sin términos raros.",
+  "Antes de producir el lote completo, ves y apruebas una muestra.",
+  "Lo producimos en Lima y te mandamos fotos del lote cuando está listo.",
+  "Coordinamos la entrega y lo llevamos donde lo necesites.",
 ];
 
 function ProcesoResumen() {
