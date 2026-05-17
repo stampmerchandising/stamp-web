@@ -35,13 +35,16 @@ function CatalogoSection({ fam, goCategory }) {
         <div className="cat-cta">
           <div>
             <div className="cat-cta-eyebrow">¿No ves lo que buscas?</div>
-            <h3 className="cat-cta-title">Producimos a medida.<br/>Cuéntanos qué necesitas.</h3>
+            <h3 className="cat-cta-title">Producimos a medida.<br/><em>Cuéntanos qué necesitas.</em></h3>
             <p className="cat-cta-desc">Más de 200 productos en catálogo — y si no está, lo hacemos. Un mensaje es suficiente para arrancar.</p>
           </div>
-          <a href="https://wa.me/51981423207" className="btn btn-primary" target="_blank" rel="noopener noreferrer">
-            Escribir por WhatsApp
-            <span className="btn-arrow"><ArrowIcon /></span>
-          </a>
+          <div className="cat-cta-actions">
+            <a href="https://wa.me/51981423207" className="btn btn-primary" target="_blank" rel="noopener noreferrer">
+              Escribir por WhatsApp
+              <span className="btn-arrow"><ArrowIcon /></span>
+            </a>
+            <CopyEmailButton />
+          </div>
         </div>
       </section>
     );
