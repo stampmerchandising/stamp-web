@@ -859,11 +859,13 @@ img, svg { display: block; max-width: 100%; }
 }
 .proceso-step-icon svg { width: 72px; height: 72px; display: block; }
 .proceso-step-title {
-  font-size: 17px; font-weight: 700; letter-spacing: -0.015em;
+  font-family: "Roboto", sans-serif;
+  font-size: clamp(15px, 1.2vw, 18px); font-weight: 500;
+  letter-spacing: -0.015em; line-height: 1.1;
   color: var(--fg); margin: 0;
 }
 .proceso-step-desc {
-  font-size: 13px; line-height: 1.75;
+  font-size: 14px; line-height: 1.65;
   color: var(--fg-soft);
 }
 @media (max-width: 780px) {
