@@ -1164,15 +1164,31 @@ img, svg { display: block; max-width: 100%; }
 
 .cat-cta {
   margin-top: 64px;
-  padding: 36px clamp(20px, 3vw, 48px);
-  background: var(--subtle);
+  padding: clamp(40px, 5vw, 72px) clamp(28px, 4vw, 64px);
+  background: #0A0A0A;
   border-radius: var(--radius);
-  display: grid; gap: 24px;
+  display: grid; gap: 28px;
   grid-template-columns: 1fr;
   align-items: center;
+  color: #FAFAFA;
 }
 @media (min-width: 760px) {
-  .cat-cta { grid-template-columns: 1fr auto; gap: 48px; padding: 48px clamp(28px, 4vw, 64px); }
+  .cat-cta { grid-template-columns: 1fr auto; gap: 56px; }
+}
+.cat-cta-eyebrow {
+  font-family: "Roboto Mono", monospace;
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 14px;
+}
+.cat-cta-title {
+  font-size: clamp(26px, 3vw, 40px); font-weight: 600;
+  letter-spacing: -0.02em; line-height: 1.1;
+  margin: 0 0 12px;
+  color: #FAFAFA;
+}
+.cat-cta-desc {
+  font-size: 16px; color: #9F9F9F; margin: 0;
+  max-width: 44ch; line-height: 1.55;
 }
 
 /* ---------- portafolio ---------- */

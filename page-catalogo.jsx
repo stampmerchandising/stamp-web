@@ -34,13 +34,12 @@ function CatalogoSection({ fam, goCategory }) {
 
         <div className="cat-cta">
           <div>
-            <div className="eyebrow" style={{ marginBottom: 12 }}>¿No ves lo que buscas?</div>
-            <p style={{ margin: 0, fontSize: 18, maxWidth: "44ch" }}>
-              Tenemos más de 200 productos en catálogo, y producimos a medida. Cuéntanos qué necesitas.
-            </p>
+            <div className="cat-cta-eyebrow">¿No ves lo que buscas?</div>
+            <h3 className="cat-cta-title">Producimos a medida.<br/>Cuéntanos qué necesitas.</h3>
+            <p className="cat-cta-desc">Más de 200 productos en catálogo — y si no está, lo hacemos. Un mensaje es suficiente para arrancar.</p>
           </div>
-          <a href="#conversemos" className="btn btn-primary">
-            Pedir un producto a medida
+          <a href="https://wa.me/51981423207" className="btn btn-primary" target="_blank" rel="noopener noreferrer">
+            Escribir por WhatsApp
             <span className="btn-arrow"><ArrowIcon /></span>
           </a>
         </div>
