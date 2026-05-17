@@ -1780,7 +1780,7 @@ body.mood-audaz .footer-logo { color: var(--accent); }
   display: flex;
 }
 .marquee-track {
-  display: flex; gap: 64px; flex: 0 0 auto;
+  display: flex; align-items: center; gap: 48px; flex: 0 0 auto;
   animation: scroll 60s linear infinite;
   white-space: nowrap;
 }
@@ -1793,7 +1793,6 @@ body.mood-audaz .footer-logo { color: var(--accent); }
   font-family: "Roboto", sans-serif;
   font-weight: 500; font-size: clamp(28px, 4vw, 56px);
   letter-spacing: -0.025em;
-  display: flex; align-items: center; gap: 40px;
 }
 .marquee-dot {
   width: 10px; height: 10px;

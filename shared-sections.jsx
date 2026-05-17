@@ -51,10 +51,10 @@ function Marquee({ items }) {
     <div className="marquee" aria-hidden="true">
       <div className="marquee-track">
         {repeated.map((t, i) =>
-          <span className="marquee-item" key={i}>
-            {t}
+          <React.Fragment key={i}>
+            <span className="marquee-item">{t}</span>
             <span className="marquee-dot" />
-          </span>
+          </React.Fragment>
         )}
       </div>
     </div>);
