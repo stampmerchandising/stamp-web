@@ -1192,8 +1192,10 @@ img, svg { display: block; max-width: 100%; }
   max-width: 44ch; line-height: 1.55;
 }
 .cat-cta-actions {
-  display: flex; flex-direction: column; gap: 14px;
-  justify-content: center;
+  display: flex; align-items: center; justify-content: flex-start;
+}
+@media (min-width: 760px) {
+  .cat-cta-actions { justify-content: center; }
 }
 
 /* ---------- portafolio ---------- */

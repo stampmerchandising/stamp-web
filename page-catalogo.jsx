@@ -43,7 +43,6 @@ function CatalogoSection({ fam, goCategory }) {
               Escribir por WhatsApp
               <span className="btn-arrow"><ArrowIcon /></span>
             </a>
-            <CopyEmailButton />
           </div>
         </div>
       </section>
