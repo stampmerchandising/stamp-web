@@ -203,7 +203,7 @@ function ProcesoResumen() {
   return (
     <section className="section" id="proceso">
       <div className="section-head">
-        <Reveal delay={80}>
+        <Reveal delay={80} style={{ gridColumn: "1 / -1" }}>
           <h2 className="h-section">Tu pedido,<br/><span style={{ color: "var(--accent)" }}>a solo 5 pasos.</span></h2>
         </Reveal>
       </div>
