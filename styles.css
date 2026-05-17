@@ -832,34 +832,34 @@ img, svg { display: block; max-width: 100%; }
 .proceso-flow::before {
   content: '';
   position: absolute;
-  top: 52px;
-  left: calc(10% + 52px); right: calc(10% + 52px);
+  top: 36px;
+  left: calc(10% + 36px); right: calc(10% + 36px);
   border-top: 2px dashed var(--line);
 }
 .proceso-step {
   display: flex; flex-direction: column; align-items: center;
-  text-align: center; gap: 24px;
+  text-align: center; gap: 20px;
   flex: 1; padding: 0 8px;
 }
 .proceso-step-icon {
   color: var(--accent);
-  width: 104px; height: 104px;
+  width: 72px; height: 72px;
   display: flex; align-items: center; justify-content: center;
   background: var(--bg);
   position: relative; z-index: 1;
   flex-shrink: 0;
 }
-.proceso-step-icon svg { width: 104px; height: 104px; display: block; }
+.proceso-step-icon svg { width: 72px; height: 72px; display: block; }
 .proceso-step-title {
-  font-size: 18px; font-weight: 700; letter-spacing: -0.015em;
+  font-size: 17px; font-weight: 700; letter-spacing: -0.015em;
   color: var(--fg); margin: 0;
 }
 @media (max-width: 780px) {
   .proceso-flow { flex-direction: column; gap: 0; }
   .proceso-flow::before { display: none; }
-  .proceso-step { flex-direction: row; text-align: left; align-items: center; padding: 28px 0; border-bottom: 1px solid var(--line); gap: 24px; }
-  .proceso-step-icon { width: 64px; height: 64px; flex-shrink: 0; }
-  .proceso-step-icon svg { width: 64px; height: 64px; }
+  .proceso-step { flex-direction: row; text-align: left; align-items: center; padding: 24px 0; border-bottom: 1px solid var(--line); gap: 20px; }
+  .proceso-step-icon { width: 48px; height: 48px; flex-shrink: 0; }
+  .proceso-step-icon svg { width: 48px; height: 48px; }
 }
 
 /* ---------- footer (compact strip) ---------- */
