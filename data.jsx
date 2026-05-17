@@ -434,7 +434,7 @@ const PROCESO = [
     desc: "Brief por correo, llamada o WhatsApp. Lo importante: para qué, para quién, para cuándo.",
     detail: "No hace falta brief perfecto. Una idea, un par de fotos de inspiración, una fecha límite y un rango de presupuesto bastan para arrancar. Si no sabes por dónde, te guía un asesor.",
     time: "Día 0" },
-  { num: "02", title: "Te cotizamos",
+  { num: "02", title: "Presupuesto",
     desc: "Recibes tu cotización detallada con productos, materiales, plazos y opciones. Sin sorpresas, sin costos ocultos.",
     detail: "Te confirmamos recibo el mismo día y armamos la cotización formal en pocos días hábiles — usualmente entre 2 y 4, según la complejidad. Si es urgente, lo movemos. Recibes un PDF con técnica, materiales, plazos, alternativas e IGV desglosado.",
     time: "2–4 días" },
