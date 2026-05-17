@@ -34,9 +34,9 @@ function CatalogoSection({ fam, goCategory }) {
 
         <div className="cat-cta">
           <div>
-            <div className="cat-cta-eyebrow">¿No encontraste lo que necesitas?</div>
-            <h3 className="cat-cta-title">Cuéntanos qué tienes en mente.<br/><em>Casi siempre encontramos la forma.</em></h3>
-            <p className="cat-cta-desc">El catálogo es solo una parte de lo que podemos hacer. Escríbenos y lo vemos juntos.</p>
+            <div className="cat-cta-eyebrow">¿No lo encuentras en el catálogo?</div>
+            <h3 className="cat-cta-title">Lo que necesitas<br/><em>está aquí. Pregúntanos.</em></h3>
+            <p className="cat-cta-desc">El catálogo es solo una muestra. Cuéntanos qué buscas y lo resolvemos.</p>
           </div>
           <div className="cat-cta-actions">
             <a href="https://wa.me/51981423207" className="btn btn-primary" target="_blank" rel="noopener noreferrer">
