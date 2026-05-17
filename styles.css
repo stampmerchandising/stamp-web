@@ -839,7 +839,7 @@ img, svg { display: block; max-width: 100%; }
 .proceso-step {
   display: flex; flex-direction: column; align-items: center;
   text-align: center; gap: 16px;
-  flex: 1; padding: 0;
+  flex: 1; padding: 0 12px;
 }
 .proceso-step-icon {
   color: var(--accent);
@@ -857,7 +857,6 @@ img, svg { display: block; max-width: 100%; }
 .proceso-step-desc {
   font-size: 13px; line-height: 1.75;
   color: var(--fg-soft);
-  margin-top: 4px;
 }
 @media (max-width: 780px) {
   .proceso-flow { flex-direction: column; gap: 0; }
