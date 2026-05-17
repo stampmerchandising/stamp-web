@@ -203,7 +203,7 @@ const PROCESO_BODY = [
   "Cuéntanos qué buscas. Te asesoramos para dar con el producto correcto para tu marca.",
   "Recibes el presupuesto con todo claro. Sin letras pequeñas ni sorpresas de último momento.",
   "Ves un preview de cómo va a quedar antes de producir. Sin tu aprobación, no avanzamos.",
-  "Lo hacemos igual a lo que aprobaste. Te mandamos fotos del lote antes de entregarlo.",
+  "El lote sale fiel a lo que aprobaste. Sin cambios de última hora.",
   "En tu oficina, tu evento o tu almacén. Vamos donde nos digas.",
 ];
 
