@@ -43,10 +43,7 @@ function ServiciosApp() {
         "Stock para reposiciones",
         "Despacho a provincia",
       ]} />
-      <CTAStrip
-        title={<>¿Cuál de estos servicios<br/><em>te calza?</em></>}
-        primary={{ href: "#conversemos", label: "Cuéntanos tu proyecto" }}
-      />
+      <CTAStrip />
       <Footer />
     </div>
   );
