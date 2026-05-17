@@ -201,7 +201,7 @@ const PROCESO_ICONS = [
 
 const PROCESO_BODY = [
   "Cuéntanos qué buscas. Te asesoramos para dar con el producto correcto para tu marca.",
-  "Recibes el presupuesto con precios, materiales y plazos. Todo claro desde el inicio, sin letras pequeñas.",
+  "Sabrás exactamente qué vas a recibir y cuándo. Sin sorpresas ni letra chica.",
   "Ves un preview de cómo va a quedar antes de producir. Sin tu aprobación, no avanzamos.",
   "Fabricamos cada pieza con el cuidado que tu marca se merece.",
   "En tu oficina, tu evento o tu almacén. Vamos donde nos digas.",
