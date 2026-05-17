@@ -200,11 +200,11 @@ const PROCESO_ICONS = [
 ];
 
 const PROCESO_BODY = [
-  "Escríbenos lo que necesitas. No hace falta tenerlo todo claro todavía.",
-  "Te mandamos la cotización con precios, materiales y tiempos. Sin términos raros.",
-  "Antes de producir el lote completo, ves y apruebas una muestra.",
-  "Lo producimos en Lima y te mandamos fotos del lote cuando está listo.",
-  "Coordinamos la entrega y lo llevamos donde lo necesites.",
+  "Cuéntanos qué buscas. Te asesoramos para dar con el producto correcto para tu marca.",
+  "Recibes el presupuesto con todo claro. Sin letras pequeñas ni sorpresas de último momento.",
+  "Ves un preview de cómo va a quedar antes de producir. Sin tu aprobación, no avanzamos.",
+  "Producimos en Lima con control de calidad en cada pieza antes de empacar.",
+  "En tu oficina, tu evento o tu almacén. Vamos donde nos digas.",
 ];
 
 function ProcesoResumen() {
