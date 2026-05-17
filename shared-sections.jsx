@@ -53,7 +53,7 @@ function Marquee({ items }) {
         {repeated.map((t, i) =>
           <span className="marquee-item" key={i}>
             {t}
-            <Star />
+            <span className="marquee-dot" />
           </span>
         )}
       </div>
