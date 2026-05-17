@@ -6,6 +6,7 @@ function ServiciosDetalle() {
       <div className="services-grid">
         {SERVICES.map((s, i) => (
           <Reveal key={s.id} className="service" delay={i * 40}>
+            <div className="service-tag">{s.tags?.[0] || `0${i + 1} / 0${SERVICES.length}`}</div>
             <h3 className="service-title h-card">{s.title}</h3>
             <p className="service-desc">{s.desc}</p>
             <ul className="service-includes">
