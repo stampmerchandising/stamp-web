@@ -402,30 +402,14 @@ img, svg { display: block; max-width: 100%; }
 @media (min-width: 1100px) { .services-grid { grid-template-columns: repeat(3, 1fr); } }
 .service {
   background: var(--bg);
-  padding: clamp(36px, 4vw, 56px) var(--pad-x);
+  padding: clamp(32px, 4vw, 48px) var(--pad-x);
   display: flex; flex-direction: column; gap: 18px;
-  position: relative; min-height: 320px;
+  position: relative; min-height: 280px;
   overflow: hidden;
   transition: background .25s;
-}
-.service::before {
-  content: "";
-  position: absolute; top: 0; left: 0; right: 0;
-  height: 3px;
-  background: var(--accent);
-  transform: scaleX(0); transform-origin: left;
-  transition: transform .3s ease;
+  border-top: 2px solid var(--accent);
 }
 .service:hover { background: var(--subtle); }
-.service:hover::before { transform: scaleX(1); }
-.service-top {
-  display: flex; align-items: center; justify-content: space-between;
-}
-.service-idx {
-  font-family: "Roboto Mono", ui-monospace, monospace;
-  font-size: 11px; letter-spacing: 0.2em;
-  color: var(--accent);
-}
 .service-title { margin: 0; }
 .service-desc { color: var(--fg-soft); font-size: 16px; line-height: 1.55; max-width: 38ch; }
 .service-includes {
@@ -848,8 +832,8 @@ img, svg { display: block; max-width: 100%; }
 .proceso-timeline::before {
   content: "";
   position: absolute;
-  top: 16px;
-  left: calc(10% + 16px); right: calc(10% + 16px);
+  top: 26px;
+  left: calc(10% + 26px); right: calc(10% + 26px);
   height: 1px;
   background: var(--line);
 }
@@ -861,26 +845,22 @@ img, svg { display: block; max-width: 100%; }
   .proceso-timeline { grid-template-columns: 1fr 1fr; }
 }
 .proceso-step {
-  display: flex; flex-direction: column; align-items: center;
-  text-align: center; gap: 12px;
+  display: flex; flex-direction: column; align-items: flex-start;
+  text-align: left; gap: 14px;
   padding: 0 12px;
 }
 .proceso-step-icon {
-  color: var(--accent);
-  width: 32px; height: 32px;
+  width: 52px; height: 52px;
+  border-radius: 10px;
+  background: rgba(76,35,157,0.1);
   display: flex; align-items: center; justify-content: center;
-  background: var(--bg);
+  color: var(--accent);
   position: relative; z-index: 1;
   flex-shrink: 0;
 }
-.proceso-step-icon svg { width: 32px; height: 32px; display: block; }
-.proceso-step-num {
-  font-family: "Roboto Mono", monospace;
-  font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--muted);
-}
+.proceso-step-icon svg { width: 24px; height: 24px; display: block; }
 .proceso-step-title {
-  font-size: 15px; font-weight: 700; letter-spacing: -0.01em;
+  font-size: 16px; font-weight: 700; letter-spacing: -0.01em;
   color: var(--fg); margin: 0;
 }
 .proceso-step-desc {
@@ -1370,7 +1350,7 @@ body.mood-taller .caso-img,
 body.mood-taller .contact-card { border-radius: 8px; }
 body.mood-taller .testi-avatar { border-radius: 4px; }
 body.mood-taller .hero-stat-lbl::before { content: "// "; opacity: 0.5; }
-body.mood-taller .service-idx::before { content: "// "; }
+
 
 /* ─────────────────────────────────────────────────────────────────
    MOOD: AUDAZ — display weight, color blocking, skewed accents
