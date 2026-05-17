@@ -38,12 +38,14 @@ function Trust() {
 
 function Marquee({ items }) {
   const defaults = [
-  "Sí, hacemos eso",
-  "No, no es solo lapiceros",
+  "No, no son solo lapiceros",
+  "No, no es solo para grandes empresas",
+  "No, no son solo cosas con tu logo",
+  "Sí, emitimos factura electrónica",
   "Sí, llegamos a tiempo",
-  "Sí, hacemos muestras antes",
-  "Sí, emitimos factura",
-  "Sí, despachamos a provincia"];
+  "Sí, primero ves la muestra",
+  "Sí, despachamos a provincia",
+  "No, no tienes que saber qué quieres"];
 
   const list = items || defaults;
   const repeated = [...list, ...list, ...list, ...list];
