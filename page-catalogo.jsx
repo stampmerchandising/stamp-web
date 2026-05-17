@@ -38,12 +38,6 @@ function CatalogoSection({ fam, goCategory }) {
             <h3 className="cat-cta-title">Lo que necesitas<br/><em>está aquí. Pregúntanos.</em></h3>
             <p className="cat-cta-desc">El catálogo es solo una muestra. Cuéntanos qué buscas y lo resolvemos.</p>
           </div>
-          <div className="cat-cta-actions">
-            <a href="https://wa.me/51981423207" className="btn btn-primary" target="_blank" rel="noopener noreferrer">
-              Escribir por WhatsApp
-              <span className="btn-arrow"><ArrowIcon /></span>
-            </a>
-          </div>
         </div>
       </section>
     );
