@@ -203,7 +203,6 @@ function ProcesoResumen() {
   return (
     <section className="section" id="proceso">
       <div className="section-head">
-        <Reveal className="eyebrow">Cómo trabajamos</Reveal>
         <Reveal delay={80}>
           <h2 className="h-section">Así de fácil<br/><span style={{ color: "var(--accent)" }}>es trabajar con nosotros.</span></h2>
         </Reveal>
