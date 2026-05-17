@@ -854,6 +854,10 @@ img, svg { display: block; max-width: 100%; }
   font-size: 17px; font-weight: 700; letter-spacing: -0.015em;
   color: var(--fg); margin: 0;
 }
+.proceso-step-desc {
+  font-size: 13px; line-height: 1.6;
+  color: var(--fg-soft); max-width: 20ch;
+}
 @media (max-width: 780px) {
   .proceso-flow { flex-direction: column; gap: 0; }
   .proceso-flow::before { display: none; }

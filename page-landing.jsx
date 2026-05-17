@@ -199,6 +199,14 @@ const PROCESO_ICONS = [
   <svg viewBox="0 0 382.79 271.26" fill="currentColor"><path d="M0,147.51v-63.46s.78-26.66.78-26.66l.57-12.23C2.51,20.39,21.57,2.34,46.18,1.48c56-1.93,111.44-2.04,167.45.05,21.55.8,39.36,14.71,43.68,36.03l34.01.41c18.69.23,36.44,8.7,48.63,23.09,15,17.72,27.48,36.64,38.87,56.84,2.41,4.27,4.02,9.86,3.97,14.61l-.26,23.68c-.13,12.15-.28,24-1.99,36.25-2.49,17.81-15.57,31.89-32.7,36.39-3.74-28.98-28.47-49.3-56.61-48.21-27.66,1.07-50.66,22.89-52.47,51.34l-43.75-.67-53.2.78c-1.72-28.5-24.78-50.56-52.72-51.53s-52.69,19.58-56.25,47.8c-18.56-5.96-30.56-22.24-31.44-41.26l-.61-12.94L0,147.51ZM349.15,112.05c-8.21-12.66-16.39-24.43-25.84-35.83-7.96-9.6-19.34-14.71-31.71-15.8l-32.53-.24.95,67.38,81.66-.03c3.9,0,7-2.71,8.25-5.21,1.7-3.39,1.37-6.95-.78-10.26Z"/><circle cx="87.2" cy="235.28" r="35.94"/><circle cx="293.41" cy="235.32" r="35.94"/></svg>,
 ];
 
+const PROCESO_BODY = [
+  "Una idea, una fecha o una foto de referencia. Con eso alcanza para arrancar.",
+  "Te mandamos todo detallado: producto, técnica, plazo y precio final. Sin letra chica.",
+  "Antes de producir el lote, apruebas la muestra. Si algo no calza, lo ajustamos.",
+  "En nuestros talleres en Lima, con revisión pieza por pieza antes de empacar.",
+  "Coordinamos día y hora. Lo llevamos donde lo necesites — tú solo firmas el cargo.",
+];
+
 function ProcesoResumen() {
   return (
     <section className="section" id="proceso">
@@ -212,6 +220,7 @@ function ProcesoResumen() {
           <Reveal key={s.num} className="proceso-step" delay={i * 60}>
             <div className="proceso-step-icon">{PROCESO_ICONS[i]}</div>
             <div className="proceso-step-title">{s.title}</div>
+            <div className="proceso-step-desc">{PROCESO_BODY[i]}</div>
           </Reveal>
         ))}
       </div>
