@@ -120,9 +120,13 @@ function ServiciosResumen({ voice }) {
       <div className="services-grid">
         {top3.map((s, i) => (
           <Reveal key={s.id} className="service" delay={i * 60}>
-            <div className="service-tag">{s.tags?.[0]}</div>
-            <h3 className="service-title h-card">{s.title}</h3>
-            <p className="service-desc">{s.desc}</p>
+            <div className="service-img">
+              <Placeholder label={s.title.toUpperCase()} />
+            </div>
+            <div className="service-body">
+              <h3 className="service-title h-card">{s.title}</h3>
+              <p className="service-desc">{s.desc}</p>
+            </div>
           </Reveal>
         ))}
       </div>
