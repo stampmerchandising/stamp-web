@@ -41,7 +41,6 @@ function PortafolioApp() {
         title={<>Producciones reales,<br/><em>números reales.</em></>}
         lede="Una muestra de los últimos lotes que salieron de nuestros talleres. Si tu marca es próxima, estás cerca."
       />
-      <Trust />
       <PortafolioGrid />
       <CTAStrip />
       <Footer />
