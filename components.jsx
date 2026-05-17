@@ -132,6 +132,7 @@ function Nav() {
 // ============================== Footer ==============================
 function Footer() {
   return (
+    <>
     <footer className="footer">
       <div className="footer-row footer-row-main">
         <div className="footer-brand">
@@ -210,9 +211,28 @@ function Footer() {
           </a>
         </div>
       </div>
-    </footer>);}
+    </footer>
+    <BackToTop />
+    </>);}
 
-// Common page wrapper — nav + main + footer
+function BackToTop() {
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setVisible(window.scrollY > 400);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+  return (
+    <button
+      className={"back-to-top" + (visible ? " is-visible" : "")}
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      aria-label="Volver arriba">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" width="18" height="18">
+        <path d="M18 15l-6-6-6 6"/>
+      </svg>
+    </button>
+  );
+}
 function PageShell({ children }) {
   return (
     <div className="app">
@@ -226,5 +246,5 @@ function PageShell({ children }) {
 Object.assign(window, {
   StampLogo, ArrowIcon, PlusIcon, CheckIcon, Star, Placeholder,
   Reveal, useReveal,
-  Nav, Footer, PageShell
+  Nav, Footer, PageShell, BackToTop
 });
