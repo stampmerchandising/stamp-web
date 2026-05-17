@@ -2,25 +2,20 @@
 
 function ServiciosDetalle() {
   return (
-    <section style={{ paddingInline: "var(--pad-x)" }}>
-      {SERVICES.map((s, i) => (
-        <Reveal key={s.id} className={"service-detail" + (i % 2 === 1 ? " is-alt" : "")} style={{ paddingInline: 0 }} delay={i * 30}>
-          <div>
-            <div className="sd-idx">0{i + 1} / 0{SERVICES.length}</div>
-          </div>
-          <div>
-            <h2>{s.title}</h2>
-            <p className="sd-long">{s.long}</p>
-            <div className="prod-tags" style={{ marginTop: 24 }}>
-              {s.tags.map(t => <span key={t} className="prod-tag">{t}</span>)}
-            </div>
-          </div>
-          <div>
-            <h3 className="sd-includes-h">Qué incluye</h3>
-            <ul>{s.includes.map(it => <li key={it}>{it}</li>)}</ul>
-          </div>
-        </Reveal>
-      ))}
+    <section className="section">
+      <div className="services-grid">
+        {SERVICES.map((s, i) => (
+          <Reveal key={s.id} className="service" delay={i * 40}>
+            <h3 className="service-title h-card">{s.title}</h3>
+            <p className="service-desc">{s.desc}</p>
+            <ul className="service-includes">
+              {s.includes.slice(0, 3).map(item => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </Reveal>
+        ))}
+      </div>
     </section>
   );
 }
