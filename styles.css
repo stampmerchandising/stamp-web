@@ -827,7 +827,6 @@ img, svg { display: block; max-width: 100%; }
   display: flex;
   align-items: flex-start;
   margin-top: 72px;
-  gap: 16px;
   position: relative;
 }
 .proceso-flow::before {
@@ -856,8 +855,9 @@ img, svg { display: block; max-width: 100%; }
   color: var(--fg); margin: 0;
 }
 .proceso-step-desc {
-  font-size: 13px; line-height: 1.7;
+  font-size: 13px; line-height: 1.75;
   color: var(--fg-soft);
+  margin-top: 4px;
 }
 @media (max-width: 780px) {
   .proceso-flow { flex-direction: column; gap: 0; }
