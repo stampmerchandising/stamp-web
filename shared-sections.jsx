@@ -42,7 +42,7 @@ function Marquee({ items }) {
   "No, no son solo cosas con tu logo",
   "No, no tienes que hablar con tres proveedores",
   "Sí, primero ves la muestra",
-  "Sí, hacemos desde cantidades pequeñas"];
+  "Sí, tenemos todo lo que necesitas"];
 
   const list = items || defaults;
   const repeated = [...list, ...list, ...list, ...list];
