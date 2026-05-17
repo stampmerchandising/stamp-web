@@ -122,11 +122,6 @@ function ServiciosResumen({ voice }) {
           <Reveal key={s.id} className="service" delay={i * 60}>
             <h3 className="service-title h-card">{s.title}</h3>
             <p className="service-desc">{s.desc}</p>
-            <ul className="service-includes">
-              {s.includes.slice(0, 3).map(item => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
           </Reveal>
         ))}
       </div>

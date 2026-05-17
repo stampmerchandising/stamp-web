@@ -398,13 +398,12 @@ img, svg { display: block; max-width: 100%; }
   border-block: 1px solid var(--line);
   margin-inline: calc(var(--pad-x) * -1);
 }
-@media (min-width: 720px) { .services-grid { grid-template-columns: 1fr 1fr; } }
-@media (min-width: 1100px) { .services-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 720px) { .services-grid { grid-template-columns: repeat(3, 1fr); } }
 .service {
   background: var(--bg);
-  padding: clamp(32px, 4vw, 48px) var(--pad-x);
-  display: flex; flex-direction: column; gap: 18px;
-  position: relative; min-height: 280px;
+  padding: clamp(28px, 3vw, 40px) var(--pad-x);
+  display: flex; flex-direction: column; gap: 14px;
+  position: relative;
   overflow: hidden;
   transition: background .25s;
   border-top: 2px solid var(--accent);
