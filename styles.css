@@ -1517,8 +1517,8 @@ body.mood-audaz .footer-logo { color: var(--accent); }
 .reveal {
   opacity: 0; transform: translateY(20px);
   transition: opacity .8s ease, transform .8s ease;
-  height: 100%;
 }
+.cat-grid > .reveal { height: 100%; }
 .reveal.is-in { opacity: 1; transform: none; }
 .no-anim .reveal { opacity: 1; transform: none; transition: none; }
 
