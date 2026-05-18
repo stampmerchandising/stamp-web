@@ -1141,12 +1141,11 @@ img, svg { display: block; max-width: 100%; }
 }
 .cat-card:hover .cat-img .ph-lbl { background: rgba(0,0,0,0.7); border-color: #2A2A2A; color: #C9C9C9; }
 .cat-body {
-  padding: 14px; display: flex; flex-direction: column; gap: 10px; flex: 1;
+  padding: 16px 16px 14px; display: flex; flex-direction: column; gap: 12px; flex: 1;
 }
 .cat-img {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 1 / 1;
   background: var(--subtle);
-  border-bottom: 1px solid var(--line);
   position: relative;
   overflow: hidden;
   transition: background .25s;
@@ -1166,26 +1165,24 @@ img, svg { display: block; max-width: 100%; }
   color: var(--muted);
 }
 .cat-name {
-  margin: 0; font-size: 18px; font-weight: 500;
-  letter-spacing: -0.015em; line-height: 1.2;
+  margin: 0; font-size: 16px; font-weight: 500;
+  letter-spacing: -0.012em; line-height: 1.25;
 }
 .cat-foot {
-  display: flex; justify-content: space-between; align-items: flex-end;
-  padding-top: 12px; border-top: 1px solid var(--line);
+  display: flex; justify-content: space-between; align-items: center;
   margin-top: auto;
 }
 .cat-from-lbl {
   font-family: "Roboto Mono", ui-monospace, monospace;
   font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--muted);
+  color: var(--muted); margin-bottom: 2px;
 }
-.cat-from-val { font-size: 20px; font-weight: 500; letter-spacing: -0.015em; }
-.cat-unit { color: var(--muted); font-size: 13px; font-weight: 400; }
+.cat-from-val { font-size: 17px; font-weight: 500; letter-spacing: -0.015em; }
+.cat-unit { color: var(--muted); font-size: 12px; font-weight: 400; }
 .cat-moq {
   font-family: "Roboto Mono", ui-monospace, monospace;
   font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
   color: var(--muted);
-  padding: 4px 8px; background: var(--subtle); border-radius: 6px;
 }
 
 .cat-cta {
