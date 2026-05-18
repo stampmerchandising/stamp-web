@@ -77,15 +77,10 @@ function CatalogoSection({ fam, goCategory }) {
 
       <div className="cat-cta">
         <div>
-          <div className="eyebrow" style={{ marginBottom: 12 }}>¿No ves lo que buscas?</div>
-          <p style={{ margin: 0, fontSize: 18, maxWidth: "44ch" }}>
-            Tenemos más de 200 productos en catálogo, y producimos a medida. Cuéntanos qué necesitas.
-          </p>
+          <div className="cat-cta-eyebrow">¿No lo encuentras en el catálogo?</div>
+          <h3 className="cat-cta-title">Lo que necesitas<br/><em>está aquí. Pregúntanos.</em></h3>
+          <p className="cat-cta-desc">El catálogo es solo una muestra. Cuéntanos qué buscas y lo resolvemos.</p>
         </div>
-        <a href="#conversemos" className="btn btn-primary">
-          Pedir un producto a medida
-          <span className="btn-arrow"><ArrowIcon /></span>
-        </a>
       </div>
     </section>
   );
