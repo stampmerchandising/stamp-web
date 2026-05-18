@@ -49,7 +49,7 @@ function CatalogoSection({ fam, goCategory }) {
 
   return (
     <section className="section">
-      <div className="cat-grid">
+      <div className="cat-grid cat-grid--5">
         {filtered.map((p, i) => (
           <Reveal key={p.slug} delay={i * 18}>
             <a className="cat-card" href={`producto.html?slug=${p.slug}`}>
@@ -58,15 +58,12 @@ function CatalogoSection({ fam, goCategory }) {
                 {p.hot && <span className="cat-hot">{p.tag || "Top"}</span>}
               </div>
               <div className="cat-body">
-                <div className="cat-row">
-                  <h3 className="cat-name">{p.name}</h3>
-                </div>
+                <h3 className="cat-name">{p.name}</h3>
                 <div className="cat-foot">
                   <div>
-                    <div className="cat-from-lbl">Desde</div>
-                    <div className="cat-from-val">{p.moq}<span className="cat-unit"> u (MOQ)</span></div>
+                    <div className="cat-from-lbl">desde</div>
+                    <div className="cat-from-val">{p.moq}<span className="cat-unit"> unidades</span></div>
                   </div>
-                  <div className="cat-moq">Ver ficha</div>
                 </div>
               </div>
             </a>

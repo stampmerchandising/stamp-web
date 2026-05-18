@@ -1122,6 +1122,7 @@ img, svg { display: block; max-width: 100%; }
   grid-template-columns: repeat(2, 1fr);
 }
 @media (min-width: 860px) { .cat-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (min-width: 860px) { .cat-grid--5 { grid-template-columns: repeat(5, 1fr); } }
 
 .cat-card {
   display: flex; flex-direction: column; height: 100%;
@@ -1170,7 +1171,7 @@ img, svg { display: block; max-width: 100%; }
 }
 .cat-foot {
   display: flex; justify-content: space-between; align-items: center;
-  margin-top: auto;
+  margin-top: auto; padding-top: 0;
 }
 .cat-from-lbl {
   font-family: "Roboto Mono", ui-monospace, monospace;
