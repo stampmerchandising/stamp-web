@@ -1117,15 +1117,15 @@ img, svg { display: block; max-width: 100%; }
 .chip.is-on .chip-count { background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.85); }
 
 .cat-grid {
-  display: grid; gap: 24px;
+  display: grid; gap: 16px;
   grid-template-columns: 1fr;
 }
-@media (min-width: 640px) { .cat-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 960px) { .cat-grid { grid-template-columns: repeat(3, 1fr); } }
-@media (min-width: 1280px) { .cat-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (min-width: 560px) { .cat-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 860px) { .cat-grid { grid-template-columns: repeat(4, 1fr); } }
+.cat-grid > * { display: flex; flex-direction: column; }
 
 .cat-card {
-  display: flex; flex-direction: column;
+  display: flex; flex-direction: column; flex: 1;
   background: var(--bg);
   border: 1px solid var(--line);
   border-radius: 14px;
