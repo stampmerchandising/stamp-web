@@ -1170,8 +1170,8 @@ img, svg { display: block; max-width: 100%; }
   letter-spacing: -0.012em; line-height: 1.25;
 }
 .cat-foot {
-  display: flex; justify-content: space-between; align-items: center;
-  margin-top: auto; padding-top: 0;
+  display: flex; justify-content: flex-end; align-items: center;
+  margin-top: auto; padding-top: 0; text-align: right;
 }
 .cat-from-lbl {
   font-family: "Roboto Mono", ui-monospace, monospace;
