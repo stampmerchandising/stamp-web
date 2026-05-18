@@ -15,13 +15,15 @@ function ProdCarousel({ images }) {
   }, [images.length]);
 
   return (
-    <div className="prod-img">
-      <div className="prod-carousel-track" style={{ transform: `translateX(-${idx * 100}%)` }}>
-        {images.map((img, i) => (
-          <div key={i} className="prod-carousel-slide">
-            <Placeholder label={img} />
-          </div>
-        ))}
+    <div className="prod-carousel-wrap">
+      <div className="prod-img">
+        <div className="prod-carousel-track" style={{ transform: `translateX(-${idx * 100}%)` }}>
+          {images.map((img, i) => (
+            <div key={i} className="prod-carousel-slide">
+              <Placeholder label={img} />
+            </div>
+          ))}
+        </div>
       </div>
       {images.length > 1 && (
         <div className="prod-dots">
