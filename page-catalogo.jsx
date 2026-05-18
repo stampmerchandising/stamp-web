@@ -57,16 +57,18 @@ function CatalogoSection({ fam, goCategory }) {
                 <Placeholder label={p.imageLabel || p.name.toUpperCase()} />
                 {p.hot && <span className="cat-hot">{p.tag || "Top"}</span>}
               </div>
-              <div className="cat-row">
-                <div className="cat-cat">{getCategoryLabel(p.fam)}</div>
-                <h3 className="cat-name">{p.name}</h3>
-              </div>
-              <div className="cat-foot">
-                <div>
-                  <div className="cat-from-lbl">Desde</div>
-                  <div className="cat-from-val">{p.moq}<span className="cat-unit"> u (MOQ)</span></div>
+              <div className="cat-body">
+                <div className="cat-row">
+                  <div className="cat-cat">{getCategoryLabel(p.fam)}</div>
+                  <h3 className="cat-name">{p.name}</h3>
                 </div>
-                <div className="cat-moq">Ver ficha</div>
+                <div className="cat-foot">
+                  <div>
+                    <div className="cat-from-lbl">Desde</div>
+                    <div className="cat-from-val">{p.moq}<span className="cat-unit"> u (MOQ)</span></div>
+                  </div>
+                  <div className="cat-moq">Ver ficha</div>
+                </div>
               </div>
             </a>
           </Reveal>

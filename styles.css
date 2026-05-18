@@ -1125,10 +1125,15 @@ img, svg { display: block; max-width: 100%; }
 @media (min-width: 1280px) { .cat-grid { grid-template-columns: repeat(4, 1fr); } }
 
 .cat-card {
-  display: flex; flex-direction: column; gap: 14px;
-  transition: transform .25s;
+  display: flex; flex-direction: column;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  text-decoration: none; color: inherit;
+  transition: transform .25s cubic-bezier(.2,.7,.2,1), border-color .2s;
 }
-.cat-card:hover { transform: translateY(-4px); }
+.cat-card:hover { transform: translateY(-4px); border-color: var(--fg); }
 .cat-card:hover .cat-img { background: var(--fg); }
 .cat-card:hover .cat-img .ph {
   background-image: repeating-linear-gradient(
@@ -1136,11 +1141,13 @@ img, svg { display: block; max-width: 100%; }
     rgba(255,255,255,0.06) 12px, rgba(255,255,255,0.06) 13px);
 }
 .cat-card:hover .cat-img .ph-lbl { background: rgba(0,0,0,0.7); border-color: #2A2A2A; color: #C9C9C9; }
-
+.cat-body {
+  padding: 16px; display: flex; flex-direction: column; gap: 12px; flex: 1;
+}
 .cat-img {
   aspect-ratio: 1 / 1;
   background: var(--subtle);
-  border-radius: var(--radius);
+  border-bottom: 1px solid var(--line);
   position: relative;
   overflow: hidden;
   transition: background .25s;
@@ -1166,7 +1173,7 @@ img, svg { display: block; max-width: 100%; }
 .cat-foot {
   display: flex; justify-content: space-between; align-items: flex-end;
   padding-top: 12px; border-top: 1px solid var(--line);
-  margin-top: 4px;
+  margin-top: auto;
 }
 .cat-from-lbl {
   font-family: "Roboto Mono", ui-monospace, monospace;
