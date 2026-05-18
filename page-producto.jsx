@@ -99,6 +99,7 @@ function ProductoPage({ product }) {
         <div className="prod-info">
           <div className="prod-cat">{cat}{p.tag ? ` · ${p.tag}` : ""}</div>
           <h1 className="prod-title">{p.name}</h1>
+          {p.lead && <p className="prod-lead">{p.lead}</p>}
           <div className="prod-moq-inline">
             <span className="prod-moq-num">{p.moq}</span>
             <span className="prod-moq-lbl"> unidades mínimas</span>
@@ -111,7 +112,7 @@ function ProductoPage({ product }) {
       </div>
 
       <div className="prod-specs">
-        {(p.specs || []).filter(s => s.label !== "MOQ").map((spec, i) => {
+        {(p.specs || []).filter(s => s.label !== "MOQ" && s.label !== "Descripción").map((spec, i) => {
           const isFullDesc = typeof spec.value === "string" && i === 0;
           const isColors = spec.type === "colors";
           const isArray = Array.isArray(spec.value);
