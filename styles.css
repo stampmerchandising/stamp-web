@@ -1238,8 +1238,8 @@ img, svg { display: block; max-width: 100%; }
   display: grid; gap: 32px;
   grid-template-columns: 1fr;
 }
-@media (min-width: 760px) { .port-grid { grid-template-columns: 1fr 1fr; } }
-@media (min-width: 1200px) { .port-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 760px) { .port-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1200px) { .port-grid { grid-template-columns: repeat(4, 1fr); } }
 .port-card {
   background: var(--bg);
   border: 1px solid var(--line);
