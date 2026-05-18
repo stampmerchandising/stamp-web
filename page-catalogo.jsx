@@ -6,7 +6,7 @@ function CatalogoSection({ fam, goCategory }) {
   if (!fam) {
     const cats = CATEGORIAS.filter(c => c.id !== "all");
     return (
-      <section className="section">
+      <section className="section section--tight">
         <div className="cats-grid">
           {cats.map((c, i) => {
             const items = PRODUCTOS.filter(p => p.fam === c.id);

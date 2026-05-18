@@ -2,7 +2,7 @@
 
 function ServiciosDetalle() {
   return (
-    <section className="section">
+    <section className="section section--tight">
       <div className="services-grid">
         {SERVICES.map((s, i) => (
           <Reveal key={s.id} className="service" delay={i * 40}>

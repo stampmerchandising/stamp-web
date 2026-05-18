@@ -2,7 +2,7 @@
 
 function PortafolioGrid() {
   return (
-    <section className="section">
+    <section className="section section--tight">
       <div className="port-grid">
         {CASOS.map((c, i) => (
           <Reveal key={c.client + c.title} className={"port-card" + (c.size === "big" ? " port-card--big" : "")} delay={i * 30}>
