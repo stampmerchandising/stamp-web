@@ -117,16 +117,17 @@ function ProductoPage({ product }) {
                   <Placeholder label={r.imageLabel || r.name.toUpperCase()} />
                   {r.hot && <span className="cat-hot">{r.tag || "Top"}</span>}
                 </div>
-                <div className="cat-row">
-                  <div className="cat-cat">{getCategoryLabel(r.fam)}</div>
-                  <h3 className="cat-name">{r.name}</h3>
-                </div>
-                <div className="cat-foot">
-                  <div>
-                    <div className="cat-from-lbl">MOQ</div>
-                    <div className="cat-from-val">{r.moq}<span className="cat-unit"> u</span></div>
+                <div className="cat-body">
+                  <div className="cat-row">
+                    <h3 className="cat-name">{r.name}</h3>
                   </div>
-                  <div className="cat-moq">Ver ficha</div>
+                  <div className="cat-foot">
+                    <div>
+                      <div className="cat-from-lbl">Desde</div>
+                      <div className="cat-from-val">{r.moq}<span className="cat-unit"> u (MOQ)</span></div>
+                    </div>
+                    <div className="cat-moq">Ver ficha</div>
+                  </div>
                 </div>
               </a>
             ))}
