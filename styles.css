@@ -1247,15 +1247,6 @@ img, svg { display: block; max-width: 100%; }
 .port-desc {
   margin: 0; font-size: 14px; color: var(--fg-soft); line-height: 1.5; flex: 1;
 }
-.port-more {
-  display: inline-flex; align-items: center; gap: 6px;
-  font-family: "Roboto Mono", ui-monospace, monospace;
-  font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--accent); text-decoration: none; margin-top: 4px;
-  transition: gap .2s;
-}
-.port-more svg { width: 12px; height: 12px; }
-.port-more:hover { gap: 10px; }
 .port-stats {
   display: grid; grid-template-columns: repeat(3, 1fr);
   gap: 0; margin-top: auto; padding-top: 14px;

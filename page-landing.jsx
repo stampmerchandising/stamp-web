@@ -159,13 +159,18 @@ function PortafolioResumen({ voice }) {
             <div className="port-img">
               <Placeholder label={c.label} />
             </div>
-            <div className="port-body">
-              <div className="port-meta">
-                <span className="port-cat">{c.cat}</span>
-                <span className="port-client">{c.client}</span>
-              </div>
-              <h3 className="port-title">{c.title}</h3>
-              <a href="portafolio.html" className="port-more">Ver más <ArrowIcon /></a>
+            <div className="port-meta">
+              <span className="port-cat">{c.cat}</span>
+              <span className="port-client">{c.client}</span>
+            </div>
+            <h3 className="port-title">{c.title}</h3>
+            <div className="port-stats">
+              {c.stats.map(s => (
+                <div className="port-stat" key={s.lbl}>
+                  <div className="num">{s.num}</div>
+                  <div className="lbl">{s.lbl}</div>
+                </div>
+              ))}
             </div>
           </Reveal>
         ))}
