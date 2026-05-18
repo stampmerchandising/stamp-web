@@ -41,61 +41,58 @@ function ProductoPage({ product }) {
       </section>
 
       <div className="prod-grid">
-        <div className="prod-gallery">
-          <div className="prod-img">
-            <Placeholder label={p.imageLabel} />
-          </div>
+        <div className="prod-img">
+          <Placeholder label={p.imageLabel} />
         </div>
-
         <div className="prod-info">
           <div className="prod-cat">{cat}{p.tag ? ` · ${p.tag}` : ""}</div>
           <h1 className="prod-title">{p.name}</h1>
           <p className="prod-lead">{p.lead}</p>
-          <p className="prod-desc">{p.desc}</p>
-
-          <div className="prod-block">
-            <div className="prod-block-head">Materiales</div>
-            <ul>{p.materials.map(m => <li key={m}>{m}</li>)}</ul>
+          <div className="prod-moq-inline">
+            <span className="prod-moq-num">{p.moq}</span>
+            <span className="prod-moq-lbl"> u (MOQ)</span>
           </div>
-
-          <div className="prod-block">
-            <div className="prod-block-head">Colores disponibles</div>
-            <div className="prod-tags">
-              {p.colors.map(c => <span key={c} className="prod-tag">{c}</span>)}
-            </div>
-          </div>
-
-          <div className="prod-block">
-            <div className="prod-block-head">Técnicas de personalización</div>
-            <ul>{p.tecnicas.map(t => <li key={t}>{t}</li>)}</ul>
-          </div>
-
-          <div className="prod-block">
-            <div className="prod-block-head">Para qué se usa</div>
-            <div className="prod-tags">
-              {p.usos.map(u => <span key={u} className="prod-tag">{u}</span>)}
-            </div>
-          </div>
-
-          <div className="prod-block" style={{ borderTop: "1px solid var(--line)" }}>
-            <div className="prod-block-head">Cantidad mínima (MOQ)</div>
-            <div style={{ fontSize: 32, fontWeight: 500, letterSpacing: "-0.02em" }}>
-              {p.moq} unidades
-            </div>
-            <div style={{ fontSize: 14, color: "var(--muted)" }}>
-              Producciones más pequeñas: pregúntanos. Casi siempre encontramos una alternativa.
-            </div>
-          </div>
-
           <div className="prod-cta">
             <a href="#conversemos" className="btn btn-primary">
               Cotizar este producto
               <span className="btn-arrow"><ArrowIcon /></span>
             </a>
             <a href={`https://wa.me/51981423207?text=${encodeURIComponent("Hola, quisiera info sobre " + p.name)}`} className="btn btn-ghost" target="_blank" rel="noopener noreferrer">
-              Pregunta rápida por WhatsApp
+              WhatsApp
             </a>
           </div>
+        </div>
+      </div>
+
+      <div className="prod-details">
+        <div className="prod-block">
+          <div className="prod-block-head">Descripción</div>
+          <p className="prod-desc">{p.desc}</p>
+        </div>
+        <div className="prod-block">
+          <div className="prod-block-head">Materiales</div>
+          <ul>{p.materials.map(m => <li key={m}>{m}</li>)}</ul>
+        </div>
+        <div className="prod-block">
+          <div className="prod-block-head">Técnicas de personalización</div>
+          <ul>{p.tecnicas.map(t => <li key={t}>{t}</li>)}</ul>
+        </div>
+        <div className="prod-block">
+          <div className="prod-block-head">Colores disponibles</div>
+          <div className="prod-tags">
+            {p.colors.map(c => <span key={c} className="prod-tag">{c}</span>)}
+          </div>
+        </div>
+        <div className="prod-block">
+          <div className="prod-block-head">Para qué se usa</div>
+          <div className="prod-tags">
+            {p.usos.map(u => <span key={u} className="prod-tag">{u}</span>)}
+          </div>
+        </div>
+        <div className="prod-block">
+          <div className="prod-block-head">Cantidad mínima</div>
+          <div style={{ fontSize: 28, fontWeight: 500, letterSpacing: "-0.02em" }}>{p.moq} unidades</div>
+          <div style={{ fontSize: 13, color: "var(--muted)", marginTop: 4 }}>Producciones más pequeñas: pregúntanos.</div>
         </div>
       </div>
 
