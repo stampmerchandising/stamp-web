@@ -86,12 +86,9 @@ function ProductoPage({ product }) {
             <span className="prod-moq-lbl"> u (MOQ)</span>
           </div>
           <div className="prod-cta">
-            <a href="#conversemos" className="btn btn-primary">
-              Cotizar este producto
+            <a href={`https://wa.me/51981423207?text=${encodeURIComponent("Hola, quisiera info sobre " + p.name)}`} className="btn btn-primary" target="_blank" rel="noopener noreferrer">
+              Cotizar por WhatsApp
               <span className="btn-arrow"><ArrowIcon /></span>
-            </a>
-            <a href={`https://wa.me/51981423207?text=${encodeURIComponent("Hola, quisiera info sobre " + p.name)}`} className="btn btn-ghost" target="_blank" rel="noopener noreferrer">
-              WhatsApp
             </a>
           </div>
         </div>
