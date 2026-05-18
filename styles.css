@@ -1560,6 +1560,8 @@ body.mood-audaz .footer-logo { color: var(--accent); }
   grid-template-columns: 1fr;
   padding-block: clamp(48px, 6vw, 96px);
   padding-inline: var(--pad-x);
+  max-width: 1200px;
+  margin-inline: auto;
   align-items: start;
 }
 @media (min-width: 900px) {
@@ -1608,6 +1610,9 @@ body.mood-audaz .footer-logo { color: var(--accent); }
   border-top: 1px solid var(--line);
   padding-inline: var(--pad-x);
   padding-bottom: clamp(48px, 6vw, 96px);
+  max-width: 1200px;
+  margin-inline: auto;
+  width: 100%;
 }
 @media (min-width: 700px) { .prod-details { grid-template-columns: repeat(2, 1fr); } }
 .prod-details .prod-block {
@@ -1684,6 +1689,9 @@ body.mood-audaz .footer-logo { color: var(--accent); }
   padding: clamp(80px, 8vw, 140px) var(--pad-x);
   background: var(--subtle);
   border-block: 1px solid var(--line);
+}
+.related-inner {
+  max-width: 1200px; margin-inline: auto;
 }
 .related-head {
   display: flex; justify-content: space-between; align-items: flex-end;

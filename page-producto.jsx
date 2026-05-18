@@ -131,6 +131,7 @@ function ProductoPage({ product }) {
 
       {relacionados.length > 0 && (
         <section className="related">
+          <div className="related-inner">
           <div className="related-head">
             <h2 className="h-section" style={{ fontSize: "clamp(28px, 3vw, 44px)" }}>
               Productos relacionados
@@ -161,6 +162,7 @@ function ProductoPage({ product }) {
                 </div>
               </a>
             ))}
+          </div>
           </div>
         </section>
       )}
