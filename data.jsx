@@ -1,13 +1,13 @@
 // Shared data — productos, categorías, casos, testimonios, faqs
 
 const CATEGORIAS = [
-  { id: "all",         label: "Todo" },
-  { id: "escritorio",  label: "Escritorio" },
-  { id: "textil",      label: "Textil" },
-  { id: "cocina",      label: "Cocina & viaje" },
-  { id: "tech",        label: "Tech" },
-  { id: "bolsas",      label: "Bolsas" },
-  { id: "premium",     label: "Regalos premium" },
+  { id: "all",        label: "Todo" },
+  { id: "escritorio", label: "Escritorio",      desc: "Lapiceros, libretas y accesorios de escritorio que se quedan en el escritorio — y en la cabeza de quien los recibe." },
+  { id: "textil",     label: "Textil",           desc: "Polos, casacas y gorras con tu marca. Textil que se usa, no que se guarda en un cajón." },
+  { id: "cocina",     label: "Cocina & viaje",   desc: "Tazas, termos y coolers para el día a día. Tu marca en cada pausa, cada viaje, cada reunión." },
+  { id: "tech",       label: "Tech",             desc: "Cables, hubs y gadgets con tu logo. Regalos que se usan todos los días frente a una pantalla." },
+  { id: "bolsas",     label: "Bolsas",           desc: "Tote bags, mochilas y bolsas de tela. Lo que carga tu cliente carga también tu marca." },
+  { id: "premium",    label: "Regalos premium",  desc: "Para cuando el regalo tiene que impresionar. Sets curados, packaging de nivel y acabados que se notan." },
 ];
 
 // Productos completos — cada uno con slug, descripción larga (SEO), specs flexible

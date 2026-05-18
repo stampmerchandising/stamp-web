@@ -108,8 +108,9 @@ function CatalogoApp() {
       <Nav />
       {cat ? (
         <PageHero
-          eyebrow={`Catálogo · ${filtered.length} productos`}
+          eyebrow={`${filtered.length} productos`}
           title={<>{cat.label}</>}
+          lede={cat.desc}
           crumbs={[
             { href: "catalogo.html", label: "Catálogo" },
             { label: cat.label },
