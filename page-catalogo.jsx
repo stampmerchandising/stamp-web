@@ -48,7 +48,7 @@ function CatalogoSection({ fam, goCategory }) {
   const filtered = PRODUCTOS.filter(p => p.fam === fam);
 
   return (
-    <section className="section">
+    <section className="section section--tight">
       <div className="cat-crumbs">
         <a href="catalogo.html">Catálogo</a>
         <span className="cat-crumbs-sep">/</span>
