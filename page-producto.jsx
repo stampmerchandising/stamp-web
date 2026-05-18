@@ -8,7 +8,14 @@ function getProductSlug() {
 function ProductoPage({ product }) {
   const p = product;
   const cat = getCategoryLabel(p.fam);
-  const relacionados = (p.relacionados || []).map(s => getProductBySlug(s)).filter(Boolean);
+  const relacionados = (() => {
+    const base = (p.relacionados || []).map(s => getProductBySlug(s)).filter(Boolean);
+    if (base.length < 4) {
+      const extra = PRODUCTOS.filter(r => r.fam === p.fam && r.slug !== p.slug && !base.find(b => b.slug === r.slug));
+      return [...base, ...extra].slice(0, 4);
+    }
+    return base.slice(0, 4);
+  })();
 
   // Update page title/meta for SEO (client-side; in prod you'd SSR these)
   React.useEffect(() => {
