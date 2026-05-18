@@ -1603,7 +1603,6 @@ body.mood-audaz .footer-logo { color: var(--accent); }
 .prod-info {
   display: flex; flex-direction: column; gap: 28px;
 }
-.prod-lead { font-size: 15px; color: var(--fg-soft); line-height: 1.6; }
 .prod-moq-inline { font-size: 15px; color: var(--fg-soft); }
 .prod-moq-inline .prod-moq-num { font-size: 22px; font-weight: 500; letter-spacing: -0.02em; color: var(--fg); }
 .prod-specs {
