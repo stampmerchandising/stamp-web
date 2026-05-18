@@ -1608,25 +1608,19 @@ body.mood-audaz .footer-logo { color: var(--accent); }
   display: grid; gap: 0;
   grid-template-columns: 1fr;
   padding-inline: var(--pad-x);
-  padding-bottom: clamp(64px, 7vw, 120px);
+  padding-bottom: clamp(48px, 6vw, 96px);
   max-width: 1440px;
   margin-inline: auto;
   width: 100%;
 }
 @media (min-width: 700px) { .prod-details { grid-template-columns: repeat(2, 1fr); } }
 .prod-details .prod-block {
-  border-top: 1px solid var(--line);
-  padding: clamp(28px, 3vw, 44px) 0;
+  border-bottom: 1px solid var(--line);
+  padding: clamp(20px, 2.5vw, 32px) 0;
 }
-.prod-details .prod-block:first-child { grid-column: 1 / -1; }
 @media (min-width: 700px) {
-  .prod-details .prod-block:not(:first-child):nth-child(even) {
-    padding-left: clamp(32px, 4vw, 64px);
-    border-left: 1px solid var(--line);
-  }
-  .prod-details .prod-block:not(:first-child):nth-child(odd) {
-    padding-right: clamp(32px, 4vw, 64px);
-  }
+  .prod-details .prod-block:nth-child(odd) { padding-right: clamp(24px, 3vw, 48px); }
+  .prod-details .prod-block:nth-child(even) { padding-left: clamp(24px, 3vw, 48px); border-left: 1px solid var(--line); }
 }
 .prod-cat {
   font-family: "Roboto Mono", ui-monospace, monospace;
@@ -1653,11 +1647,13 @@ body.mood-audaz .footer-logo { color: var(--accent); }
   max-width: 56ch;
 }
 .prod-block {
-  display: flex; flex-direction: column; gap: 16px;
+  display: flex; flex-direction: column; gap: 12px;
+  padding: 24px 0;
+  border-top: 1px solid var(--line);
 }
 .prod-block-head {
   font-family: "Roboto Mono", ui-monospace, monospace;
-  font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+  font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
   color: var(--muted);
 }
 .prod-block ul {
