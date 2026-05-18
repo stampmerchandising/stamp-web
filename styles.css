@@ -1573,6 +1573,23 @@ body.mood-audaz .footer-logo { color: var(--accent); }
   overflow: hidden;
   position: relative;
 }
+.prod-carousel-track {
+  display: flex; width: 100%; height: 100%;
+  transition: transform .5s cubic-bezier(.4,0,.2,1);
+}
+.prod-carousel-slide {
+  flex: 0 0 100%; height: 100%;
+}
+.prod-carousel-slide .ph { width: 100%; height: 100%; }
+.prod-dots {
+  position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 7px; align-items: center;
+}
+.prod-dot {
+  width: 7px; height: 7px; border-radius: 50%; border: none; padding: 0; cursor: pointer;
+  background: rgba(255,255,255,0.4); transition: background .2s, transform .2s;
+}
+.prod-dot.is-on { background: #fff; transform: scale(1.3); }
 .prod-info {
   display: flex; flex-direction: column; gap: 20px;
 }

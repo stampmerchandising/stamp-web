@@ -5,6 +5,39 @@ function getProductSlug() {
   return params.get("slug") || PRODUCTOS[0].slug;
 }
 
+function ProdCarousel({ images }) {
+  const [idx, setIdx] = React.useState(0);
+
+  React.useEffect(() => {
+    if (images.length <= 1) return;
+    const t = setInterval(() => setIdx(i => (i + 1) % images.length), 20000);
+    return () => clearInterval(t);
+  }, [images.length]);
+
+  return (
+    <div className="prod-img">
+      <div className="prod-carousel-track" style={{ transform: `translateX(-${idx * 100}%)` }}>
+        {images.map((img, i) => (
+          <div key={i} className="prod-carousel-slide">
+            <Placeholder label={img} />
+          </div>
+        ))}
+      </div>
+      {images.length > 1 && (
+        <div className="prod-dots">
+          {images.map((_, i) => (
+            <button
+              key={i}
+              className={"prod-dot" + (i === idx ? " is-on" : "")}
+              onClick={() => setIdx(i)}
+              aria-label={`Foto ${i + 1}`}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
 function ProductoPage({ product }) {
   const p = product;
   const cat = getCategoryLabel(p.fam);
@@ -41,9 +74,7 @@ function ProductoPage({ product }) {
       </section>
 
       <div className="prod-grid">
-        <div className="prod-img">
-          <Placeholder label={p.imageLabel} />
-        </div>
+        <ProdCarousel images={p.images || [p.imageLabel]} />
         <div className="prod-info">
           <div className="prod-cat">{cat}{p.tag ? ` · ${p.tag}` : ""}</div>
           <h1 className="prod-title">{p.name}</h1>
