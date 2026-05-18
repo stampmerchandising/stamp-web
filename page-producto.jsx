@@ -112,43 +112,32 @@ function ProductoPage({ product }) {
       </div>
 
       <div className="prod-specs">
-        <div className="prod-spec-row prod-spec-row--full">
-          <span className="prod-spec-label">Descripción</span>
-          <p className="prod-spec-value">{p.desc}</p>
-        </div>
-        <div className="prod-spec-row">
-          <span className="prod-spec-label">Materiales</span>
-          <div className="prod-spec-value">
-            {p.materials.map(m => <div key={m}>{m}</div>)}
-          </div>
-        </div>
-        <div className="prod-spec-row">
-          <span className="prod-spec-label">Técnicas</span>
-          <div className="prod-spec-value">
-            {p.tecnicas.map(t => <div key={t}>{t}</div>)}
-          </div>
-        </div>
-        <div className="prod-spec-row">
-          <span className="prod-spec-label">Colores</span>
-          <div className="prod-spec-value prod-colors">
-            {p.colors.map(c => (
-              <div key={c} className="prod-color-item">
-                <span className="prod-color-swatch" style={{ background: getColorSwatch(c) }} />
-                <span>{c}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="prod-spec-row">
-          <span className="prod-spec-label">Usos</span>
-          <div className="prod-spec-value">
-            {p.usos.map(u => <div key={u}>{u}</div>)}
-          </div>
-        </div>
-        <div className="prod-spec-row">
-          <span className="prod-spec-label">Cantidad mínima</span>
-          <div className="prod-spec-value">{p.moq} unidades</div>
-        </div>
+        {(p.specs || []).map((spec, i) => {
+          const isFullDesc = typeof spec.value === "string" && i === 0;
+          const isColors = spec.type === "colors";
+          const isArray = Array.isArray(spec.value);
+          return (
+            <div key={i} className={"prod-spec-row" + (isFullDesc ? " prod-spec-row--full" : "")}>
+              <span className="prod-spec-label">{spec.label}</span>
+              {isColors ? (
+                <div className="prod-spec-value prod-colors">
+                  {spec.value.map(c => (
+                    <div key={c} className="prod-color-item">
+                      <span className="prod-color-swatch" style={{ background: getColorSwatch(c) }} />
+                      <span>{c}</span>
+                    </div>
+                  ))}
+                </div>
+              ) : isArray ? (
+                <div className="prod-spec-value">
+                  {spec.value.map(v => <div key={v}>{v}</div>)}
+                </div>
+              ) : (
+                <p className="prod-spec-value">{spec.value}</p>
+              )}
+            </div>
+          );
+        })}
       </div>
 
       {relacionados.length > 0 && (
@@ -200,8 +189,8 @@ function ProductoPage({ product }) {
         "description": p.desc,
         "category": cat,
         "brand": { "@type": "Brand", "name": "STAMP" },
-        "material": p.materials.join(", "),
-        "color": p.colors.join(", "),
+        "material": (p.specs || []).filter(s => s.label === "Material" || s.label === "Material / Specs").flatMap(s => Array.isArray(s.value) ? s.value : [s.value]).join(", "),
+        "color": (p.specs || []).filter(s => s.type === "colors").flatMap(s => s.value).join(", "),
         "manufacturer": { "@type": "Organization", "name": "STAMP", "url": "https://stamp.com.pe", "address": { "@type": "PostalAddress", "addressCountry": "PE", "addressLocality": "Lima" } }
       }) }} />
     </div>
