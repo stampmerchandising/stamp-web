@@ -62,7 +62,7 @@ function CatalogoSection({ fam, goCategory }) {
                 <div className="cat-foot">
                   <div>
                     <div className="cat-from-lbl">desde</div>
-                    <div className="cat-from-val">{p.moq}<span className="cat-unit"> unidades</span></div>
+                    <div className="cat-from-val">{p.moq}<span className="cat-unit"> unids</span></div>
                   </div>
                 </div>
               </div>
