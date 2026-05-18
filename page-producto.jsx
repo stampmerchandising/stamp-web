@@ -1,5 +1,24 @@
 // Producto — ficha técnica, sin precio, optimizada para SEO
 
+const COLOR_MAP = {
+  "blanco": "#F5F5F5", "negro": "#1A1A1A", "rojo": "#D62828", "azul": "#1E40AF",
+  "azul navy": "#1E3A5F", "verde": "#2D6A4F", "verde bosque": "#2D6A4F",
+  "amarillo": "#F4C542", "naranja": "#E07B39", "rosa": "#E8799B",
+  "celeste": "#7EC8E3", "gris": "#9CA3AF", "crema": "#E8DCC8",
+  "dorado": "#C9A84C", "plata": "#C0C0C0", "cobre": "#B87333",
+  "metal natural": "#B0B4B8", "blanco brillante": "#FAFAFA",
+  "pastel rosa/amarillo/celeste": "linear-gradient(135deg,#E8799B,#F4C542,#7EC8E3)",
+  "pantone a tu marca (hasta 8 colores)": "conic-gradient(#D62828,#E07B39,#F4C542,#2D6A4F,#1E40AF,#6B21A8,#D62828)",
+};
+
+function getColorSwatch(name) {
+  const key = name.toLowerCase();
+  for (const [k, v] of Object.entries(COLOR_MAP)) {
+    if (key.includes(k)) return v;
+  }
+  return "var(--subtle)";
+}
+
 function getProductSlug() {
   const params = new URLSearchParams(window.location.search);
   return params.get("slug") || PRODUCTOS[0].slug;
@@ -101,16 +120,21 @@ function ProductoPage({ product }) {
         </div>
         <div className="prod-block">
           <div className="prod-block-head">Materiales</div>
-          <ul>{p.materials.map(m => <li key={m}>{m}</li>)}</ul>
+          <ul className="prod-bullet-list">{p.materials.map(m => <li key={m}>{m}</li>)}</ul>
         </div>
         <div className="prod-block">
           <div className="prod-block-head">Técnicas de personalización</div>
-          <ul>{p.tecnicas.map(t => <li key={t}>{t}</li>)}</ul>
+          <ul className="prod-bullet-list">{p.tecnicas.map(t => <li key={t}>{t}</li>)}</ul>
         </div>
         <div className="prod-block">
           <div className="prod-block-head">Colores disponibles</div>
-          <div className="prod-tags">
-            {p.colors.map(c => <span key={c} className="prod-tag">{c}</span>)}
+          <div className="prod-colors">
+            {p.colors.map(c => (
+              <div key={c} className="prod-color-item">
+                <span className="prod-color-swatch" style={{ background: getColorSwatch(c) }} />
+                <span className="prod-color-name">{c}</span>
+              </div>
+            ))}
           </div>
         </div>
         <div className="prod-block">
