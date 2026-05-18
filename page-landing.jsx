@@ -125,7 +125,7 @@ function ServiciosResumen({ voice }) {
             </div>
             <div className="service-body">
               <h3 className="service-title h-card">{s.title}</h3>
-              <p className="service-desc">{s.desc}</p>
+              <a href="servicios.html" className="port-more">Ver más <ArrowIcon /></a>
             </div>
           </Reveal>
         ))}
