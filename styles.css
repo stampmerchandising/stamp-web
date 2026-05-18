@@ -1142,11 +1142,11 @@ img, svg { display: block; max-width: 100%; }
 }
 .cat-card:hover .cat-img .ph-lbl { background: rgba(0,0,0,0.7); border-color: #2A2A2A; color: #C9C9C9; }
 .cat-body {
-  padding: 12px 14px; display: flex; flex-direction: row;
+  padding: 18px 16px; display: flex; flex-direction: row;
   align-items: center; justify-content: space-between; gap: 8px;
 }
 .cat-img {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 1 / 1;
   background: var(--subtle);
   position: relative;
   overflow: hidden;
