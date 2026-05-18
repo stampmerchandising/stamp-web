@@ -123,7 +123,7 @@ function ServiciosResumen({ voice }) {
             <div className="service-img">
               <Placeholder label={s.title.toUpperCase()} />
             </div>
-            <div className="service-body">
+            <div className="service-body service-body--row">
               <h3 className="service-title h-card">{s.title}</h3>
               <a href="servicios.html" className="service-more" aria-label="Ver más">
                 <ArrowIcon />
