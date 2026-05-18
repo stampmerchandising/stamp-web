@@ -22,6 +22,7 @@ const PRODUCTOS = [
     tecnicas: ["Grabado láser (recomendado)", "Serigrafía a 1 color", "Impresión UV (logos full color)"],
     usos: ["Regalo ejecutivo", "Onboarding", "Eventos corporativos", "Premios de campaña"],
     imageLabel: "FOTO · Lapicero metálico negro con grabado",
+    images: ["FOTO · Lapicero metálico negro con grabado", "FOTO · Lapicero metálico detalle punta", "FOTO · Lapicero metálico colores disponibles"],
     relacionados: ["libreta-a5", "llavero-pvc", "set-cuero-premium"],
   },
   {
