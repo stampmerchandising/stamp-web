@@ -108,7 +108,6 @@ function CatalogoApp() {
       <Nav />
       {cat ? (
         <PageHero
-          eyebrow="Catálogo"
           title={<>{cat.label}</>}
           lede={cat.desc}
           crumbs={[
