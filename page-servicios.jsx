@@ -35,14 +35,6 @@ function ServiciosApp() {
         lede="Cubrimos todo el ciclo: del catálogo a la producción, del armado al despacho. Un solo proveedor, un solo asesor, una sola factura."
       />
       <ServiciosDetalle />
-      <Marquee items={[
-        "Catálogo curado",
-        "Producción end-to-end",
-        "Asesor dedicado",
-        "Muestras antes de producir",
-        "Stock para reposiciones",
-        "Despacho a provincia",
-      ]} />
       <CTAStrip />
       <Footer />
     </div>
