@@ -1600,28 +1600,37 @@ body.mood-audaz .footer-logo { color: var(--accent); }
 }
 @keyframes dot-progress { to { width: 100%; } }
 .prod-info {
-  display: flex; flex-direction: column; gap: 20px;
+  display: flex; flex-direction: column; gap: 28px;
 }
 .prod-moq-inline { font-size: 15px; color: var(--fg-soft); }
 .prod-moq-inline .prod-moq-num { font-size: 22px; font-weight: 500; letter-spacing: -0.02em; color: var(--fg); }
-.prod-details {
-  display: grid; gap: 0;
-  grid-template-columns: 1fr;
+.prod-specs {
+  max-width: 1440px; margin-inline: auto; width: 100%;
   padding-inline: var(--pad-x);
-  padding-bottom: clamp(48px, 6vw, 96px);
-  max-width: 1440px;
-  margin-inline: auto;
-  width: 100%;
+  padding-bottom: clamp(64px, 8vw, 120px);
+  border-top: 1px solid var(--line);
 }
-@media (min-width: 700px) { .prod-details { grid-template-columns: repeat(2, 1fr); } }
-.prod-details .prod-block {
+.prod-spec-row {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 24px;
+  padding: 22px 0;
   border-bottom: 1px solid var(--line);
-  padding: clamp(20px, 2.5vw, 32px) 0;
+  align-items: start;
 }
 @media (min-width: 700px) {
-  .prod-details .prod-block:nth-child(odd) { padding-right: clamp(24px, 3vw, 48px); }
-  .prod-details .prod-block:nth-child(even) { padding-left: clamp(24px, 3vw, 48px); border-left: 1px solid var(--line); }
+  .prod-spec-row { grid-template-columns: 220px 1fr; }
 }
+.prod-spec-label {
+  font-family: "Roboto Mono", ui-monospace, monospace;
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--muted); padding-top: 3px; flex-shrink: 0;
+}
+.prod-spec-value {
+  font-size: 15px; color: var(--fg-soft); line-height: 1.6;
+  display: flex; flex-direction: column; gap: 6px;
+}
+.prod-spec-value p { margin: 0; }
 .prod-cat {
   font-family: "Roboto Mono", ui-monospace, monospace;
   font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
@@ -1646,40 +1655,11 @@ body.mood-audaz .footer-logo { color: var(--accent); }
   margin: 0;
   max-width: 56ch;
 }
-.prod-block {
-  display: flex; flex-direction: column; gap: 16px;
-  padding: clamp(28px, 3vw, 40px) 0;
-  border-top: 1px solid var(--line);
-}
-.prod-block-head {
-  font-family: "Roboto Mono", ui-monospace, monospace;
-  font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--muted);
-}
-.prod-bullet-list {
-  margin: 0; padding: 0; list-style: none;
-  display: flex; flex-direction: column; gap: 10px;
-}
-.prod-bullet-list li {
-  display: flex; align-items: baseline; gap: 12px;
-  font-size: 16px; color: var(--fg-soft); line-height: 1.4;
-}
-.prod-bullet-list li::before {
-  content: ""; flex: 0 0 5px; height: 5px; border-radius: 50%;
-  background: var(--accent); margin-top: 2px;
-}
-.prod-colors {
-  display: flex; flex-direction: column; gap: 10px;
-}
-.prod-color-item {
-  display: flex; align-items: center; gap: 12px;
-}
+.prod-colors { display: flex; flex-direction: column; gap: 8px; }
+.prod-color-item { display: flex; align-items: center; gap: 10px; font-size: 15px; color: var(--fg-soft); }
 .prod-color-swatch {
-  width: 20px; height: 20px; border-radius: 50%; flex: 0 0 auto;
-  border: 1px solid rgba(255,255,255,0.1);
-}
-.prod-color-name {
-  font-size: 15px; color: var(--fg-soft);
+  width: 18px; height: 18px; border-radius: 50%; flex: 0 0 auto;
+  border: 1px solid rgba(255,255,255,0.12);
 }
 .prod-tags {
   display: flex; flex-wrap: wrap; gap: 8px;

@@ -102,51 +102,52 @@ function ProductoPage({ product }) {
           <p className="prod-lead">{p.lead}</p>
           <div className="prod-moq-inline">
             <span className="prod-moq-num">{p.moq}</span>
-            <span className="prod-moq-lbl"> u (MOQ)</span>
+            <span className="prod-moq-lbl"> unidades mínimas</span>
           </div>
-          <div className="prod-cta">
-            <a href={`https://wa.me/51981423207?text=${encodeURIComponent("Hola, quisiera info sobre " + p.name)}`} className="btn btn-primary" target="_blank" rel="noopener noreferrer">
-              Cotizar por WhatsApp
-              <span className="btn-arrow"><ArrowIcon /></span>
-            </a>
-          </div>
+          <a href={`https://wa.me/51981423207?text=${encodeURIComponent("Hola, quisiera info sobre " + p.name)}`} className="btn btn-primary" target="_blank" rel="noopener noreferrer">
+            Cotizar por WhatsApp
+            <span className="btn-arrow"><ArrowIcon /></span>
+          </a>
         </div>
       </div>
 
-      <div className="prod-details">
-        <div className="prod-block">
-          <div className="prod-block-head">Descripción</div>
-          <p className="prod-desc">{p.desc}</p>
+      <div className="prod-specs">
+        <div className="prod-spec-row prod-spec-row--full">
+          <span className="prod-spec-label">Descripción</span>
+          <p className="prod-spec-value">{p.desc}</p>
         </div>
-        <div className="prod-block">
-          <div className="prod-block-head">Materiales</div>
-          <ul className="prod-bullet-list">{p.materials.map(m => <li key={m}>{m}</li>)}</ul>
+        <div className="prod-spec-row">
+          <span className="prod-spec-label">Materiales</span>
+          <div className="prod-spec-value">
+            {p.materials.map(m => <div key={m}>{m}</div>)}
+          </div>
         </div>
-        <div className="prod-block">
-          <div className="prod-block-head">Técnicas de personalización</div>
-          <ul className="prod-bullet-list">{p.tecnicas.map(t => <li key={t}>{t}</li>)}</ul>
+        <div className="prod-spec-row">
+          <span className="prod-spec-label">Técnicas</span>
+          <div className="prod-spec-value">
+            {p.tecnicas.map(t => <div key={t}>{t}</div>)}
+          </div>
         </div>
-        <div className="prod-block">
-          <div className="prod-block-head">Colores disponibles</div>
-          <div className="prod-colors">
+        <div className="prod-spec-row">
+          <span className="prod-spec-label">Colores</span>
+          <div className="prod-spec-value prod-colors">
             {p.colors.map(c => (
               <div key={c} className="prod-color-item">
                 <span className="prod-color-swatch" style={{ background: getColorSwatch(c) }} />
-                <span className="prod-color-name">{c}</span>
+                <span>{c}</span>
               </div>
             ))}
           </div>
         </div>
-        <div className="prod-block">
-          <div className="prod-block-head">Para qué se usa</div>
-          <div className="prod-tags">
-            {p.usos.map(u => <span key={u} className="prod-tag">{u}</span>)}
+        <div className="prod-spec-row">
+          <span className="prod-spec-label">Usos</span>
+          <div className="prod-spec-value">
+            {p.usos.map(u => <div key={u}>{u}</div>)}
           </div>
         </div>
-        <div className="prod-block">
-          <div className="prod-block-head">Cantidad mínima</div>
-          <div style={{ fontSize: 28, fontWeight: 500, letterSpacing: "-0.02em" }}>{p.moq} unidades</div>
-          <div style={{ fontSize: 13, color: "var(--muted)", marginTop: 4 }}>Producciones más pequeñas: pregúntanos.</div>
+        <div className="prod-spec-row">
+          <span className="prod-spec-label">Cantidad mínima</span>
+          <div className="prod-spec-value">{p.moq} unidades</div>
         </div>
       </div>
 
