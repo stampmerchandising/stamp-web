@@ -1562,31 +1562,17 @@ body.mood-audaz .footer-logo { color: var(--accent); }
   padding-inline: var(--pad-x);
 }
 @media (min-width: 900px) {
-  .prod-grid { grid-template-columns: 1.1fr 1fr; gap: clamp(48px, 5vw, 96px); }
+  .prod-grid { grid-template-columns: 0.8fr 1fr; gap: clamp(40px, 5vw, 80px); }
 }
-.prod-gallery {
-  display: flex; flex-direction: column; gap: 16px;
-  position: relative;
-}
+.prod-gallery { position: relative; }
 .prod-img {
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 4 / 3;
   background: var(--subtle);
   border-radius: var(--radius);
   overflow: hidden;
   position: relative;
+  max-width: 480px;
 }
-.prod-thumbs {
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
-}
-.prod-thumb {
-  aspect-ratio: 1 / 1;
-  background: var(--subtle);
-  border-radius: 14px;
-  overflow: hidden;
-  border: 2px solid transparent;
-  cursor: pointer;
-}
-.prod-thumb.is-on { border-color: var(--fg); }
 .prod-info {
   display: flex; flex-direction: column; gap: 28px;
 }

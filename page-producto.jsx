@@ -45,13 +45,6 @@ function ProductoPage({ product }) {
           <div className="prod-img">
             <Placeholder label={p.imageLabel} />
           </div>
-          <div className="prod-thumbs">
-            {Array.from({ length: 4 }).map((_, i) => (
-              <div key={i} className={"prod-thumb" + (i === 0 ? " is-on" : "")}>
-                <Placeholder label={`VISTA 0${i + 1}`} />
-              </div>
-            ))}
-          </div>
         </div>
 
         <div className="prod-info">
