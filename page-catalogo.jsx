@@ -59,12 +59,7 @@ function CatalogoSection({ fam, goCategory }) {
               </div>
               <div className="cat-body">
                 <h3 className="cat-name">{p.name}</h3>
-                <div className="cat-foot">
-                  <div>
-                    <div className="cat-from-lbl">desde</div>
-                    <div className="cat-from-val">{p.moq}<span className="cat-unit"> unids</span></div>
-                  </div>
-                </div>
+                <span className="cat-moq-pill">{p.moq}<span className="cat-unit"> u</span></span>
               </div>
             </a>
           </Reveal>
