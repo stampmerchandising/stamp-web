@@ -49,6 +49,11 @@ function CatalogoSection({ fam, goCategory }) {
 
   return (
     <section className="section">
+      <div className="cat-crumbs">
+        <a href="catalogo.html">Catálogo</a>
+        <span className="cat-crumbs-sep">/</span>
+        <span>{cat.label}</span>
+      </div>
       <div className="cat-grid cat-grid--5">
         {filtered.map((p, i) => (
           <Reveal key={p.slug} delay={i * 18}>
@@ -110,10 +115,6 @@ function CatalogoApp() {
         <PageHero
           title={<>{cat.label}</>}
           lede={cat.desc}
-          crumbs={[
-            { href: "catalogo.html", label: "Catálogo" },
-            { label: cat.label },
-          ]}
         />
       ) : (
         <PageHero

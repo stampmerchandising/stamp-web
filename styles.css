@@ -1194,6 +1194,16 @@ img, svg { display: block; max-width: 100%; }
   color: var(--muted);
 }
 
+.cat-crumbs {
+  display: flex; align-items: center; gap: 10px;
+  font-family: "Roboto Mono", ui-monospace, monospace;
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 24px;
+}
+.cat-crumbs a { color: var(--fg-soft); text-decoration: none; }
+.cat-crumbs a:hover { color: var(--fg); }
+.cat-crumbs-sep { opacity: 0.4; }
+
 .cat-cta {
   margin-top: 64px;
   padding: clamp(40px, 5vw, 72px) clamp(28px, 4vw, 64px);
