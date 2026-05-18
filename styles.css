@@ -1582,14 +1582,21 @@ body.mood-audaz .footer-logo { color: var(--accent); }
 }
 .prod-carousel-slide .ph { width: 100%; height: 100%; }
 .prod-dots {
-  display: flex; gap: 7px; align-items: center; justify-content: center;
-  margin-top: 12px;
+  position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 6px; align-items: center;
 }
 .prod-dot {
-  width: 7px; height: 7px; border-radius: 50%; border: none; padding: 0; cursor: pointer;
-  background: rgba(76,35,157,0.25); transition: background .2s, transform .2s;
+  width: 7px; height: 7px; border-radius: 999px; border: none; padding: 0; cursor: pointer;
+  background: rgba(255,255,255,0.35); position: relative; overflow: hidden;
+  transition: width .3s cubic-bezier(.4,0,.2,1), background .2s;
 }
-.prod-dot.is-on { background: var(--accent); transform: scale(1.3); }
+.prod-dot.is-on { width: 28px; background: rgba(255,255,255,0.25); }
+.prod-dot-fill {
+  position: absolute; inset: 0 auto 0 0; width: 0%;
+  background: #fff; border-radius: 999px;
+  animation: dot-progress 20s linear forwards;
+}
+@keyframes dot-progress { to { width: 100%; } }
 .prod-info {
   display: flex; flex-direction: column; gap: 20px;
 }

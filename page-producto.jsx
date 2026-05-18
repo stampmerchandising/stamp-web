@@ -15,15 +15,13 @@ function ProdCarousel({ images }) {
   }, [images.length]);
 
   return (
-    <div className="prod-carousel-wrap">
-      <div className="prod-img">
-        <div className="prod-carousel-track" style={{ transform: `translateX(-${idx * 100}%)` }}>
-          {images.map((img, i) => (
-            <div key={i} className="prod-carousel-slide">
-              <Placeholder label={img} />
-            </div>
-          ))}
-        </div>
+    <div className="prod-img">
+      <div className="prod-carousel-track" style={{ transform: `translateX(-${idx * 100}%)` }}>
+        {images.map((img, i) => (
+          <div key={i} className="prod-carousel-slide">
+            <Placeholder label={img} />
+          </div>
+        ))}
       </div>
       {images.length > 1 && (
         <div className="prod-dots">
@@ -33,7 +31,9 @@ function ProdCarousel({ images }) {
               className={"prod-dot" + (i === idx ? " is-on" : "")}
               onClick={() => setIdx(i)}
               aria-label={`Foto ${i + 1}`}
-            />
+            >
+              {i === idx && <span key={idx} className="prod-dot-fill" />}
+            </button>
           ))}
         </div>
       )}
