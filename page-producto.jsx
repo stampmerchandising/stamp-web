@@ -103,7 +103,7 @@ function ProductoPage({ product }) {
             <span className="prod-moq-num">{p.moq}</span>
             <span className="prod-moq-lbl"> unidades mínimas</span>
           </div>
-          <a href={`https://wa.me/51981423207?text=${encodeURIComponent("Hola, quisiera info sobre " + p.name)}`} className="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">
+          <a href={`https://wa.me/51981423207?text=${encodeURIComponent("Hola, quisiera info sobre " + p.name)}`} className="btn btn-primary" target="_blank" rel="noopener noreferrer">
             Cotizar por WhatsApp
             <span className="btn-arrow"><ArrowIcon /></span>
           </a>
