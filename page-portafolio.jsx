@@ -9,21 +9,21 @@ function PortafolioGrid() {
             <div className="port-img">
               <Placeholder label={c.label} />
             </div>
-            <div className="port-meta">
-              <span className="port-cat">{c.cat}</span>
-              <span className="port-client">{c.client}</span>
-            </div>
-            <h3 className="port-title">{c.title}</h3>
-            <p style={{ margin: "4px 0 0", fontSize: 15, color: "var(--fg-soft)", maxWidth: "48ch", lineHeight: 1.45 }}>
-              {c.desc}
-            </p>
-            <div className="port-stats">
-              {c.stats.map(s => (
-                <div className="port-stat" key={s.lbl}>
-                  <div className="num">{s.num}</div>
-                  <div className="lbl">{s.lbl}</div>
-                </div>
-              ))}
+            <div className="port-body">
+              <div className="port-meta">
+                <span className="port-cat">{c.cat}</span>
+                <span className="port-client">{c.client}</span>
+              </div>
+              <h3 className="port-title">{c.title}</h3>
+              <p className="port-desc">{c.desc}</p>
+              <div className="port-stats">
+                {c.stats.map(s => (
+                  <div className="port-stat" key={s.lbl}>
+                    <div className="num">{s.num}</div>
+                    <div className="lbl">{s.lbl}</div>
+                  </div>
+                ))}
+              </div>
             </div>
           </Reveal>
         ))}
