@@ -59,7 +59,6 @@ function CatalogoSection({ fam, goCategory }) {
               </div>
               <div className="cat-body">
                 <div className="cat-row">
-                  <div className="cat-cat">{getCategoryLabel(p.fam)}</div>
                   <h3 className="cat-name">{p.name}</h3>
                 </div>
                 <div className="cat-foot">

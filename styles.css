@@ -1117,15 +1117,13 @@ img, svg { display: block; max-width: 100%; }
 .chip.is-on .chip-count { background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.85); }
 
 .cat-grid {
-  display: grid; gap: 16px;
-  grid-template-columns: 1fr;
+  display: grid; gap: 14px;
+  grid-template-columns: repeat(2, 1fr);
 }
-@media (min-width: 560px) { .cat-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 860px) { .cat-grid { grid-template-columns: repeat(4, 1fr); } }
-.cat-grid > * { display: flex; flex-direction: column; }
 
 .cat-card {
-  display: flex; flex-direction: column; flex: 1;
+  display: flex; flex-direction: column; height: 100%;
   background: var(--bg);
   border: 1px solid var(--line);
   border-radius: 14px;
@@ -1142,10 +1140,10 @@ img, svg { display: block; max-width: 100%; }
 }
 .cat-card:hover .cat-img .ph-lbl { background: rgba(0,0,0,0.7); border-color: #2A2A2A; color: #C9C9C9; }
 .cat-body {
-  padding: 16px; display: flex; flex-direction: column; gap: 12px; flex: 1;
+  padding: 14px; display: flex; flex-direction: column; gap: 10px; flex: 1;
 }
 .cat-img {
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 4 / 3;
   background: var(--subtle);
   border-bottom: 1px solid var(--line);
   position: relative;
