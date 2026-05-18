@@ -1607,7 +1607,6 @@ body.mood-audaz .footer-logo { color: var(--accent); }
 .prod-details {
   display: grid; gap: 0;
   grid-template-columns: 1fr;
-  border-top: 1px solid var(--line);
   padding-inline: var(--pad-x);
   padding-bottom: clamp(48px, 6vw, 96px);
   max-width: 1400px;
