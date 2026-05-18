@@ -1679,7 +1679,7 @@ body.mood-audaz .footer-logo { color: var(--accent); }
 }
 
 .related {
-  padding: clamp(48px, 5vw, 80px) var(--pad-x);
+  padding: clamp(32px, 3vw, 48px) var(--pad-x);
   background: var(--subtle);
   border-block: 1px solid var(--line);
 }
