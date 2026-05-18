@@ -1605,25 +1605,28 @@ body.mood-audaz .footer-logo { color: var(--accent); }
 .prod-moq-inline { font-size: 15px; color: var(--fg-soft); }
 .prod-moq-inline .prod-moq-num { font-size: 22px; font-weight: 500; letter-spacing: -0.02em; color: var(--fg); }
 .prod-details {
-  display: grid; gap: 12px;
+  display: grid; gap: 0;
   grid-template-columns: 1fr;
   padding-inline: var(--pad-x);
-  padding-bottom: clamp(48px, 6vw, 96px);
-  padding-top: clamp(24px, 3vw, 40px);
+  padding-bottom: clamp(64px, 7vw, 120px);
   max-width: 1440px;
   margin-inline: auto;
   width: 100%;
 }
-@media (min-width: 700px) { .prod-details { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 700px) { .prod-details { grid-template-columns: repeat(2, 1fr); } }
 .prod-details .prod-block {
-  background: var(--subtle);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: clamp(20px, 2vw, 28px);
   border-top: 1px solid var(--line);
+  padding: clamp(28px, 3vw, 44px) 0;
 }
-.prod-details .prod-block:first-child {
-  grid-column: 1 / -1;
+.prod-details .prod-block:first-child { grid-column: 1 / -1; }
+@media (min-width: 700px) {
+  .prod-details .prod-block:not(:first-child):nth-child(even) {
+    padding-left: clamp(32px, 4vw, 64px);
+    border-left: 1px solid var(--line);
+  }
+  .prod-details .prod-block:not(:first-child):nth-child(odd) {
+    padding-right: clamp(32px, 4vw, 64px);
+  }
 }
 .prod-cat {
   font-family: "Roboto Mono", ui-monospace, monospace;
@@ -1650,12 +1653,12 @@ body.mood-audaz .footer-logo { color: var(--accent); }
   max-width: 56ch;
 }
 .prod-block {
-  display: flex; flex-direction: column; gap: 14px;
+  display: flex; flex-direction: column; gap: 16px;
 }
 .prod-block-head {
   font-family: "Roboto Mono", ui-monospace, monospace;
   font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--accent); margin-bottom: 2px;
+  color: var(--muted);
 }
 .prod-block ul {
   margin: 0; padding: 0; list-style: none;
