@@ -397,34 +397,31 @@ img, svg { display: block; max-width: 100%; }
 
 /* ---------- service cards ---------- */
 .services-grid {
-  display: grid; gap: 20px;
+  display: grid; gap: 2px;
   grid-template-columns: 1fr;
 }
 @media (min-width: 720px) { .services-grid { grid-template-columns: repeat(3, 1fr); } }
 .service {
   background: var(--bg);
   border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-  display: flex; flex-direction: column;
-  transition: border-color .25s, transform .25s;
+  padding: 32px 28px 24px;
+  display: flex; flex-direction: column; gap: 14px;
+  transition: background .25s, color .25s, border-color .25s;
+  position: relative;
 }
-.service:hover { border-color: var(--fg); transform: translateY(-4px); }
-.service-img {
-  aspect-ratio: 2 / 1;
-  background: var(--subtle);
-  overflow: hidden;
-  transition: background .25s;
+.service:hover { background: #0A0A0A; color: #FAFAFA; border-color: #0A0A0A; }
+.service-num {
+  font-family: "Roboto Mono", ui-monospace, monospace;
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--accent);
 }
-.service-img .ph { width: 100%; height: 100%; }
-.service-body {
-  padding: 20px 22px;
-  display: flex; flex-direction: column; gap: 12px; flex: 1;
+.service-title {
+  margin: 0; font-size: clamp(18px, 1.4vw, 22px); font-weight: 500;
+  letter-spacing: -0.02em; line-height: 1.2;
 }
 .service-body--row {
   flex-direction: row; align-items: center; justify-content: space-between; gap: 16px;
 }
-.service-title { margin: 0; }
 .service-body--row .service-title { flex: 1; }
 .service-more {
   display: flex; align-items: center; justify-content: center;
@@ -433,12 +430,12 @@ img, svg { display: block; max-width: 100%; }
   transition: background .2s, border-color .2s, color .2s, transform .2s;
 }
 .service-more svg { width: 14px; height: 14px; }
-.service:hover .service-more {
-  background: var(--fg); border-color: var(--fg); color: var(--bg); transform: translateX(3px);
+.service-desc {
+  color: var(--fg-soft); font-size: 14px; line-height: 1.6; margin: 0; flex: 1;
 }
-.service-desc { color: var(--fg-soft); font-size: 15px; line-height: 1.55; margin: 0; }
+.service:hover .service-desc { color: #9F9F9F; }
 .service-includes {
-  list-style: none; margin: auto 0 0; padding: 0;
+  list-style: none; padding: 0; margin: 0;
   display: flex; flex-direction: column; gap: 6px;
 }
 .service-includes li {
@@ -446,11 +443,23 @@ img, svg { display: block; max-width: 100%; }
   display: flex; align-items: flex-start; gap: 8px;
   line-height: 1.4;
 }
+.service:hover .service-includes li { color: #9F9F9F; }
 .service-includes li::before {
   content: "";
   width: 6px; height: 6px; border-radius: 50%; background: var(--accent);
-  flex-shrink: 0; margin-top: 5px;
+  flex-shrink: 0; margin-top: 4px;
 }
+.service-foot {
+  display: flex; justify-content: flex-end; margin-top: 8px;
+}
+.service-arrow-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px; border-radius: 50%;
+  border: 1px solid var(--line); color: var(--fg);
+  transition: background .2s, border-color .2s, color .2s;
+}
+.service-arrow-btn svg { width: 12px; height: 12px; }
+.service:hover .service-arrow-btn { background: #fff; border-color: #fff; color: #0A0A0A; }
 .tag {
   font-family: "Roboto Mono", ui-monospace, monospace;
   font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
