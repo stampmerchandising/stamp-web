@@ -447,9 +447,9 @@ img, svg { display: block; max-width: 100%; }
   line-height: 1.4;
 }
 .service-includes li::before {
-  content: "·";
-  color: var(--accent);
-  flex-shrink: 0; font-size: 14px; margin-top: 0;
+  content: "";
+  width: 6px; height: 6px; border-radius: 50%; background: var(--accent);
+  flex-shrink: 0; margin-top: 5px;
 }
 .tag {
   font-family: "Roboto Mono", ui-monospace, monospace;
@@ -1821,8 +1821,8 @@ body.mood-audaz .footer-logo { color: var(--accent); }
   font-size: 16px; color: var(--fg);
 }
 .service-detail li::before {
-  content: "·"; position: absolute; left: 0; top: 0;
-  color: var(--accent); font-size: 18px; line-height: 1.2;
+  content: ""; position: absolute; left: 0; top: 0.55em;
+  width: 6px; height: 6px; border-radius: 50%; background: var(--accent);
 }
 
 /* ---------- proceso detail ---------- */
