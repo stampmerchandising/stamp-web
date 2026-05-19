@@ -397,30 +397,34 @@ img, svg { display: block; max-width: 100%; }
 
 /* ---------- service cards ---------- */
 .services-grid {
-  display: grid; gap: 20px;
+  display: grid;
   grid-template-columns: 1fr;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
 }
 @media (min-width: 720px) { .services-grid { grid-template-columns: repeat(3, 1fr); } }
 .service {
+  padding: 28px 24px 28px;
+  display: flex; flex-direction: column; gap: 12px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
   background: var(--bg);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-  display: flex; flex-direction: column;
-  transition: border-color .25s, transform .25s;
+  transition: background .2s, color .2s;
+  cursor: default;
 }
-.service:hover { border-color: var(--fg); transform: translateY(-3px); }
-.service-img {
-  aspect-ratio: 2 / 1;
-  background: var(--subtle);
-  overflow: hidden;
-  transition: background .25s;
+.service:hover { background: var(--accent); color: #fff; }
+.service-top {
+  display: flex; flex-direction: column; gap: 16px; margin-bottom: 4px;
 }
-.service-img .ph { width: 100%; height: 100%; }
-.service:hover .service-img { background: #E8E8E8; }
-.service-body {
-  padding: 22px 24px 24px;
-  display: flex; flex-direction: column; gap: 8px; flex: 1;
+.service-idx {
+  font-family: "Roboto Mono", ui-monospace, monospace;
+  font-size: 11px; letter-spacing: 0.16em; color: var(--muted);
+  transition: color .2s;
+}
+.service:hover .service-idx { color: rgba(255,255,255,0.5); }
+.service-title {
+  margin: 0; font-size: clamp(20px, 1.6vw, 24px); font-weight: 600;
+  letter-spacing: -0.025em; line-height: 1.1;
 }
 .service-body--row {
   flex-direction: row; align-items: center; justify-content: space-between; gap: 16px;
@@ -430,31 +434,31 @@ img, svg { display: block; max-width: 100%; }
   display: flex; align-items: center; justify-content: center;
   width: 36px; height: 36px; border-radius: 50%; flex: 0 0 auto;
   border: 1px solid var(--line); color: var(--fg); text-decoration: none;
-  transition: background .2s, border-color .2s, color .2s, transform .2s;
+  transition: background .2s, border-color .2s, color .2s;
 }
 .service-more svg { width: 14px; height: 14px; }
 .service:hover .service-more { background: var(--fg); border-color: var(--fg); color: var(--bg); }
-.service-title {
-  margin: 0; font-size: 18px; font-weight: 600;
-  letter-spacing: -0.02em; line-height: 1.2;
-}
 .service-desc {
-  color: var(--fg-soft); font-size: 14px; line-height: 1.6; margin: 0;
+  font-size: 14px; line-height: 1.65; margin: 0;
+  color: var(--fg-soft); transition: color .2s;
 }
+.service:hover .service-desc { color: rgba(255,255,255,0.75); }
 .service-includes {
-  list-style: none; padding: 0; margin: 10px 0 0;
+  list-style: none; padding: 0; margin: auto 0 0;
   display: flex; flex-direction: column; gap: 5px;
 }
 .service-includes li {
   font-size: 12px; color: var(--muted);
   display: flex; align-items: flex-start; gap: 8px;
-  line-height: 1.4;
+  line-height: 1.4; transition: color .2s;
 }
+.service:hover .service-includes li { color: rgba(255,255,255,0.6); }
 .service-includes li::before {
   content: "";
   width: 5px; height: 5px; border-radius: 50%; background: var(--accent);
-  flex-shrink: 0; margin-top: 4px;
+  flex-shrink: 0; margin-top: 4px; transition: background .2s;
 }
+.service:hover .service-includes li::before { background: rgba(255,255,255,0.6); }
 .tag {
   font-family: "Roboto Mono", ui-monospace, monospace;
   font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
