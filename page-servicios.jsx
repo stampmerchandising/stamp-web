@@ -6,16 +6,17 @@ function ServiciosDetalle() {
       <div className="services-grid">
         {SERVICES.map((s, i) => (
           <Reveal key={s.id} className="service" delay={i * 40}>
-            <div className="service-num">{"0" + (i + 1)}</div>
-            <h3 className="service-title">{s.title}</h3>
-            <p className="service-desc">{s.desc}</p>
-            <ul className="service-includes">
-              {s.includes.slice(0, 3).map(item => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-            <div className="service-foot">
-              <span className="service-arrow-btn"><ArrowIcon /></span>
+            <div className="service-img">
+              <Placeholder label={s.title.toUpperCase()} />
+            </div>
+            <div className="service-body">
+              <h3 className="service-title">{s.title}</h3>
+              <p className="service-desc">{s.desc}</p>
+              <ul className="service-includes">
+                {s.includes.slice(0, 3).map(item => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
             </div>
           </Reveal>
         ))}
