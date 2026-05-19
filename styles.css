@@ -411,7 +411,7 @@ img, svg { display: block; max-width: 100%; }
 }
 .service:hover { border-color: var(--fg); transform: translateY(-4px); }
 .service-img {
-  aspect-ratio: 5 / 3;
+  aspect-ratio: 16 / 9;
   background: var(--subtle);
   overflow: hidden;
   transition: background .25s;
