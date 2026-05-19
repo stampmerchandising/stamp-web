@@ -412,13 +412,8 @@ img, svg { display: block; max-width: 100%; }
 .service:hover { border-color: var(--fg); transform: translateY(-3px); }
 .service-img {
   aspect-ratio: 2 / 1;
-  background: linear-gradient(135deg, rgba(76,35,157,0.07) 0%, rgba(76,35,157,0.18) 100%);
+  background: var(--subtle);
 }
-.service:nth-child(2) .service-img { background: linear-gradient(135deg, rgba(76,35,157,0.04) 0%, rgba(76,35,157,0.14) 100%); }
-.service:nth-child(3) .service-img { background: linear-gradient(135deg, rgba(76,35,157,0.10) 0%, rgba(76,35,157,0.22) 100%); }
-.service:nth-child(4) .service-img { background: linear-gradient(135deg, rgba(76,35,157,0.06) 0%, rgba(76,35,157,0.16) 100%); }
-.service:nth-child(5) .service-img { background: linear-gradient(135deg, rgba(76,35,157,0.12) 0%, rgba(76,35,157,0.20) 100%); }
-.service:nth-child(6) .service-img { background: linear-gradient(135deg, rgba(76,35,157,0.05) 0%, rgba(76,35,157,0.15) 100%); }
 .service-body {
   padding: 20px 22px 24px;
   display: flex; flex-direction: column; gap: 8px; flex: 1;
