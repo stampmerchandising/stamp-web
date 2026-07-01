@@ -1,4 +1,5 @@
-// Producto — ficha técnica, sin precio, optimizada para SEO
+// Producto — ficha técnica, sin precio, optimizada para SEO.
+// Los datos vienen del ERP (catalog-source.jsx); si no hay config, del demo local.
 
 const COLOR_MAP = {
   "blanco": "#F5F5F5", "negro": "#1A1A1A", "rojo": "#D62828", "azul": "#1E40AF",
@@ -12,16 +13,18 @@ const COLOR_MAP = {
 };
 
 function getColorSwatch(name) {
-  const key = name.toLowerCase();
+  const key = String(name || "").toLowerCase();
   for (const [k, v] of Object.entries(COLOR_MAP)) {
     if (key.includes(k)) return v;
   }
   return "var(--subtle)";
 }
 
-function getProductSlug() {
-  const params = new URLSearchParams(window.location.search);
-  return params.get("slug") || PRODUCTOS[0].slug;
+// Un color puede ser texto (demo) o { name, hex } (ERP). Normaliza ambos.
+function colorNameOf(c) { return typeof c === "string" ? c : (c && c.name) || ""; }
+function colorSwatchOf(c) {
+  if (typeof c === "string") return getColorSwatch(c);
+  return (c && c.hex) || getColorSwatch(c && c.name);
 }
 
 function ProdCarousel({ images }) {
@@ -38,7 +41,7 @@ function ProdCarousel({ images }) {
       <div className="prod-carousel-track" style={{ transform: `translateX(-${idx * 100}%)` }}>
         {images.map((img, i) => (
           <div key={i} className="prod-carousel-slide">
-            <Placeholder label={img} />
+            <CatalogImg src={img} label={img} />
           </div>
         ))}
       </div>
@@ -59,13 +62,14 @@ function ProdCarousel({ images }) {
     </div>
   );
 }
-function ProductoPage({ product }) {
+
+function ProductoPage({ product, categorias, productos }) {
   const p = product;
-  const cat = getCategoryLabel(p.fam);
+  const cat = catLabelFrom(categorias, p.fam);
   const relacionados = (() => {
-    const base = (p.relacionados || []).map(s => getProductBySlug(s)).filter(Boolean);
+    const base = (p.relacionados || []).map(s => findProductBySlug(productos, s)).filter(Boolean);
     if (base.length < 4) {
-      const extra = PRODUCTOS.filter(r => r.fam === p.fam && r.slug !== p.slug && !base.find(b => b.slug === r.slug));
+      const extra = productos.filter(r => r.fam === p.fam && r.slug !== p.slug && !base.find(b => b.slug === r.slug));
       return [...base, ...extra].slice(0, 4);
     }
     return base.slice(0, 4);
@@ -75,8 +79,10 @@ function ProductoPage({ product }) {
   React.useEffect(() => {
     document.title = "Stamp";
     const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) metaDesc.setAttribute("content", p.lead);
+    if (metaDesc && p.lead) metaDesc.setAttribute("content", p.lead);
   }, [p.slug]);
+
+  const images = (p.images && p.images.length) ? p.images : [p.imageLabel || p.name];
 
   return (
     <div className="app">
@@ -95,15 +101,17 @@ function ProductoPage({ product }) {
       </section>
 
       <div className="prod-grid">
-        <ProdCarousel images={p.images || [p.imageLabel]} />
+        <ProdCarousel images={images} />
         <div className="prod-info">
           <div className="prod-cat">{cat}{p.tag ? ` · ${p.tag}` : ""}</div>
           <h1 className="prod-title">{p.name}</h1>
           {p.lead && <p className="prod-lead">{p.lead}</p>}
-          <div className="prod-moq-inline">
-            <span className="prod-moq-num">{p.moq}</span>
-            <span className="prod-moq-lbl"> unidades mínimas</span>
-          </div>
+          {p.moq != null && (
+            <div className="prod-moq-inline">
+              <span className="prod-moq-num">{p.moq}</span>
+              <span className="prod-moq-lbl"> unidades mínimas</span>
+            </div>
+          )}
           <a href={`https://wa.me/51981423207?text=${encodeURIComponent("Hola, quisiera info sobre " + p.name)}`} className="btn btn-primary" style={{ alignSelf: "flex-start" }} target="_blank" rel="noopener noreferrer">
             Cotizar por WhatsApp
             <span className="btn-arrow"><ArrowIcon /></span>
@@ -121,16 +129,16 @@ function ProductoPage({ product }) {
               <span className="prod-spec-label">{spec.label}</span>
               {isColors ? (
                 <div className="prod-spec-value prod-colors">
-                  {spec.value.map(c => (
-                    <div key={c} className="prod-color-item">
-                      <span className="prod-color-swatch" style={{ background: getColorSwatch(c) }} />
-                      <span>{c}</span>
+                  {spec.value.map((c, ci) => (
+                    <div key={ci} className="prod-color-item">
+                      <span className="prod-color-swatch" style={{ background: colorSwatchOf(c) }} />
+                      <span>{colorNameOf(c)}</span>
                     </div>
                   ))}
                 </div>
               ) : isArray ? (
                 <div className="prod-spec-value">
-                  {spec.value.map(v => <div key={v}>{v}</div>)}
+                  {spec.value.map((v, vi) => <div key={vi}>{v}</div>)}
                 </div>
               ) : (
                 <p className="prod-spec-value">{spec.value}</p>
@@ -156,12 +164,12 @@ function ProductoPage({ product }) {
             {relacionados.map(r => (
               <a className="cat-card" key={r.slug} href={`producto.html?slug=${r.slug}`}>
                 <div className="cat-img">
-                  <Placeholder label={r.imageLabel || r.name.toUpperCase()} />
+                  <CatalogImg src={r.image} label={r.imageLabel || r.name.toUpperCase()} />
                   {r.hot && <span className="cat-hot">{r.tag || "Top"}</span>}
                 </div>
                 <div className="cat-body">
                   <h3 className="cat-name">{r.name}</h3>
-                  <span className="cat-moq-pill">{r.moq}<span className="cat-unit"> u</span></span>
+                  {r.moq != null && <span className="cat-moq-pill">{r.moq}<span className="cat-unit"> u</span></span>}
                 </div>
               </a>
             ))}
@@ -182,21 +190,67 @@ function ProductoPage({ product }) {
         "category": cat,
         "brand": { "@type": "Brand", "name": "STAMP" },
         "material": (p.specs || []).filter(s => s.label === "Material" || s.label === "Material / Specs").flatMap(s => Array.isArray(s.value) ? s.value : [s.value]).join(", "),
-        "color": (p.specs || []).filter(s => s.type === "colors").flatMap(s => s.value).join(", "),
+        "color": (p.specs || []).filter(s => s.type === "colors").flatMap(s => (s.value || []).map(colorNameOf)).join(", "),
         "manufacturer": { "@type": "Organization", "name": "STAMP", "url": "https://stamp.com.pe", "address": { "@type": "PostalAddress", "addressCountry": "PE", "addressLocality": "Lima" } }
       }) }} />
     </div>
   );
 }
 
+function ProductoShell({ children }) {
+  return (
+    <div className="app">
+      <Nav />
+      {children}
+      <Footer />
+    </div>
+  );
+}
+
 function ProductoApp() {
-  const slug = getProductSlug();
-  const product = getProductBySlug(slug);
+  const { loading, error, categorias, productos } = useCatalog();
+
+  if (loading) {
+    return (
+      <ProductoShell>
+        <div className="prod-grid">
+          <div className="prod-img skeleton" />
+          <div className="prod-info">
+            <span className="skeleton-line" style={{ width: "40%" }} />
+            <span className="skeleton-line" style={{ width: "80%", height: 32 }} />
+            <span className="skeleton-line" style={{ width: "100%" }} />
+            <span className="skeleton-line" style={{ width: "60%" }} />
+          </div>
+        </div>
+      </ProductoShell>
+    );
+  }
+
+  if (error) {
+    return (
+      <ProductoShell>
+        <section className="page-hero">
+          <h1>No pudimos cargar el producto</h1>
+          <p className="page-hero-lede">
+            Hubo un problema al conectar con el catálogo. Vuelve a intentarlo o escríbenos y te ayudamos.
+          </p>
+          <div style={{ marginTop: 32 }}>
+            <button type="button" className="btn btn-primary" onClick={() => window.location.reload()}>
+              Reintentar
+              <span className="btn-arrow"><ArrowIcon /></span>
+            </button>
+          </div>
+        </section>
+      </ProductoShell>
+    );
+  }
+
+  const param = new URLSearchParams(window.location.search).get("slug");
+  const product = param ? findProductBySlug(productos, param) : productos[0];
 
   if (!product) {
     return (
-      <div className="app">
-        <Nav />
+      <ProductoShell>
         <section className="page-hero">
           <h1>Producto no encontrado</h1>
           <p className="page-hero-lede">
@@ -209,12 +263,11 @@ function ProductoApp() {
             </a>
           </div>
         </section>
-        <Footer />
-      </div>
+      </ProductoShell>
     );
   }
 
-  return <ProductoPage product={product} />;
+  return <ProductoPage product={product} categorias={categorias} productos={productos} />;
 }
 
 ReactDOM.createRoot(document.getElementById("root")).render(<ProductoApp />);
