@@ -2123,6 +2123,11 @@ body.mood-audaz .footer-logo { color: var(--accent); }
 .auth-captcha-new svg { width: 16px; height: 16px; }
 .auth-captcha-new:hover { color: var(--accent); border-color: var(--accent); }
 
+/* widget de Turnstile: alto reservado para que la tarjeta no salte al cargar */
+.auth-turnstile { min-height: 65px; }
+.auth-turnstile iframe { max-width: 100%; }
+.auth-field > .auth-label + .auth-turnstile { margin-top: 2px; }
+
 /* estado de error */
 .auth-field.is-error .auth-input { border-color: #C6362F; }
 .auth-field.is-error .auth-input:focus-within { box-shadow: 0 0 0 3px rgba(198,54,47,0.13); }

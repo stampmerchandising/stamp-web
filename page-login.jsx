@@ -79,9 +79,25 @@ function SentIcon() {
 // ------------------------------ utilidades ------------------------------
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-// Reto aritmético simple: verificación sin dependencias externas ni cookies de
-// terceros, legible por lectores de pantalla. Si más adelante se monta un
-// backend, se reemplaza por reCAPTCHA/hCaptcha conservando este mismo campo.
+// ---------------------------------------------------------------------------
+// Verificación anti-bot — Cloudflare Turnstile.
+//
+// Pega aquí la site key del panel de Cloudflare (es pública, va en el HTML).
+// La secret key NUNCA va en el frontend: se usa en el servidor.
+//
+// IMPORTANTE: el widget por sí solo no protege nada. El token que emite tiene
+// que validarse en el backend contra
+//   https://challenges.cloudflare.com/turnstile/v0/siteverify
+// y rechazar el login si la validación falla. Sin ese paso, un atacante llama
+// al endpoint de autenticación directamente y se salta el captcha entero.
+// Ver docs/seguridad-login.md.
+const TURNSTILE_SITE_KEY = "";
+const TURNSTILE_SRC = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+const CAPTCHA_REMOTO = !!TURNSTILE_SITE_KEY;
+
+// Reto local de respaldo: solo se usa mientras no haya site key configurada,
+// para poder desarrollar la pantalla. NO es protección real — cualquier script
+// lo resuelve leyendo los dos números. No dejar así en producción.
 function newChallenge() {
   const a = 1 + Math.floor(Math.random() * 8);
   const b = 1 + Math.floor(Math.random() * 8);
@@ -135,6 +151,71 @@ function Captcha({ challenge, value, onChange, onRefresh, error, inputRef }) {
     </div>);
 }
 
+// Widget de Turnstile. Si el script no carga (red caída, bloqueador, o alguien
+// intentando esquivarlo) no hay token y el formulario no deja enviar: se falla
+// cerrado a propósito, en vez de degradar a una verificación más débil.
+function TurnstileField({ onToken, resetKey, error }) {
+  const boxRef = React.useRef(null);
+  const widgetRef = React.useRef(null);
+  const [failed, setFailed] = React.useState(false);
+
+  React.useEffect(() => {
+    let cancelled = false;
+
+    function render() {
+      if (cancelled || !boxRef.current || !window.turnstile || widgetRef.current !== null) return;
+      widgetRef.current = window.turnstile.render(boxRef.current, {
+        sitekey: TURNSTILE_SITE_KEY,
+        language: "es",
+        action: "login",
+        callback: (token) => onToken(token),
+        "expired-callback": () => onToken(""),
+        "timeout-callback": () => onToken(""),
+        "error-callback": () => { onToken(""); setFailed(true); }
+      });
+    }
+
+    if (window.turnstile) { render(); return () => { cancelled = true; }; }
+
+    let script = document.querySelector('script[data-turnstile]');
+    if (!script) {
+      script = document.createElement("script");
+      script.src = TURNSTILE_SRC;
+      script.async = true;
+      script.defer = true;
+      script.setAttribute("data-turnstile", "");
+      document.head.appendChild(script);
+    }
+    const onLoad = () => render();
+    const onErr = () => { if (!cancelled) setFailed(true); };
+    script.addEventListener("load", onLoad);
+    script.addEventListener("error", onErr);
+    return () => {
+      cancelled = true;
+      script.removeEventListener("load", onLoad);
+      script.removeEventListener("error", onErr);
+    };
+  }, []);
+
+  // Tras un intento fallido se pide un reto nuevo: un token de Turnstile es de
+  // un solo uso.
+  React.useEffect(() => {
+    if (resetKey && widgetRef.current !== null && window.turnstile) {
+      window.turnstile.reset(widgetRef.current);
+      onToken("");
+    }
+  }, [resetKey]);
+
+  return (
+    <div className={"auth-field" + (error ? " is-error" : "")}>
+      <span className="auth-label">Verificación</span>
+      <div className="auth-turnstile" ref={boxRef} />
+      {failed &&
+        <span className="auth-error"><AlertIcon />No se pudo cargar la verificación. Recarga la página.</span>}
+      {error && !failed && <span className="auth-error"><AlertIcon />{error}</span>}
+    </div>);
+}
+
 // ------------------------------ página ------------------------------
 function LoginPage() {
   const [view, setView] = React.useState("login"); // login | recover | sent | success
@@ -149,6 +230,8 @@ function LoginPage() {
   const [loading, setLoading] = React.useState(false);
   const [capsOn, setCapsOn] = React.useState(false);
   const [sentTo, setSentTo] = React.useState("");
+  const [token, setToken] = React.useState("");
+  const [resetKey, setResetKey] = React.useState(0);
 
   const emailRef = React.useRef(null);
   const pwRef = React.useRef(null);
@@ -159,6 +242,11 @@ function LoginPage() {
   }, [view]);
 
   function resetChallenge() {
+    if (CAPTCHA_REMOTO) {
+      setToken("");
+      setResetKey((k) => k + 1);
+      return;
+    }
     setChallenge(newChallenge());
     setCaptcha("");
   }
@@ -176,8 +264,13 @@ function LoginPage() {
     if (!mail) e.email = "Ingresa tu correo corporativo.";
     else if (!EMAIL_RE.test(mail)) e.email = "El correo no tiene un formato válido.";
     if (withPassword && !password) e.password = "Ingresa tu contraseña.";
-    if (!captcha.trim()) e.captcha = "Resuelve la verificación.";
-    else if (Number(captcha.trim()) !== challenge.answer) e.captcha = "El resultado no es correcto.";
+    if (CAPTCHA_REMOTO) {
+      if (!token) e.captcha = "Completa la verificación.";
+    } else if (!captcha.trim()) {
+      e.captcha = "Resuelve la verificación.";
+    } else if (Number(captcha.trim()) !== challenge.answer) {
+      e.captcha = "El resultado no es correcto.";
+    }
     return e;
   }
 
@@ -199,6 +292,10 @@ function LoginPage() {
     }
     setLoading(true);
     // TODO: reemplazar por la llamada real al endpoint de autenticación.
+    // Enviar el token como "cf-turnstile-response" junto a las credenciales; el
+    // servidor lo valida con siteverify antes de comprobar la contraseña.
+    // Si la respuesta es un fallo, llamar a resetChallenge(): el token ya se
+    // consumió y Turnstile no acepta el mismo dos veces.
     window.setTimeout(() => {
       setLoading(false);
       setView("success");
@@ -245,14 +342,15 @@ function LoginPage() {
         aria-describedby={errors.email ? "email-error" : undefined} />
     </Field>);
 
-  const captchaField = (
-    <Captcha
-      challenge={challenge}
-      value={captcha}
-      onChange={setCaptcha}
-      onRefresh={resetChallenge}
-      error={errors.captcha}
-      inputRef={capRef} />);
+  const captchaField = CAPTCHA_REMOTO
+    ? <TurnstileField onToken={setToken} resetKey={resetKey} error={errors.captcha} />
+    : <Captcha
+        challenge={challenge}
+        value={captcha}
+        onChange={setCaptcha}
+        onRefresh={resetChallenge}
+        error={errors.captcha}
+        inputRef={capRef} />;
 
   return (
     <div className="auth">
