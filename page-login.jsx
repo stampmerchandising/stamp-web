@@ -91,7 +91,7 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 // y rechazar el login si la validación falla. Sin ese paso, un atacante llama
 // al endpoint de autenticación directamente y se salta el captcha entero.
 // Ver docs/seguridad-login.md.
-const RECAPTCHA_SITE_KEY = "";
+const RECAPTCHA_SITE_KEY = "6LdSrWMtAAAAACVIwqYrze9vBECpVEAx0TK1iCzs";
 const RECAPTCHA_SRC = "https://www.google.com/recaptcha/api.js?render=explicit&hl=es";
 const CAPTCHA_REMOTO = !!RECAPTCHA_SITE_KEY;
 
