@@ -80,20 +80,39 @@ function SentIcon() {
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 // ---------------------------------------------------------------------------
-// Verificación anti-bot — Cloudflare Turnstile.
+// Verificación anti-bot — reCAPTCHA v2 de Google ("No soy un robot").
 //
-// Pega aquí la site key del panel de Cloudflare (es pública, va en el HTML).
-// La secret key NUNCA va en el frontend: se usa en el servidor.
+// Pega aquí la clave del sitio que da Google (es pública, va en el HTML).
+// La clave secreta NUNCA va en el frontend: se usa en el servidor.
 //
 // IMPORTANTE: el widget por sí solo no protege nada. El token que emite tiene
 // que validarse en el backend contra
-//   https://challenges.cloudflare.com/turnstile/v0/siteverify
+//   https://www.google.com/recaptcha/api/siteverify
 // y rechazar el login si la validación falla. Sin ese paso, un atacante llama
 // al endpoint de autenticación directamente y se salta el captcha entero.
 // Ver docs/seguridad-login.md.
-const TURNSTILE_SITE_KEY = "";
-const TURNSTILE_SRC = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
-const CAPTCHA_REMOTO = !!TURNSTILE_SITE_KEY;
+const RECAPTCHA_SITE_KEY = "";
+const RECAPTCHA_SRC = "https://www.google.com/recaptcha/api.js?render=explicit&hl=es";
+const CAPTCHA_REMOTO = !!RECAPTCHA_SITE_KEY;
+
+// La API de reCAPTCHA avisa que está lista por un callback global, no por el
+// evento load del script: grecaptcha.render puede no existir todavía cuando el
+// script termina de bajar.
+let recaptchaReady = null;
+function loadRecaptcha() {
+  if (recaptchaReady) return recaptchaReady;
+  recaptchaReady = new Promise((resolve, reject) => {
+    if (window.grecaptcha && window.grecaptcha.render) { resolve(); return; }
+    window.__stampRecaptchaReady = resolve;
+    const script = document.createElement("script");
+    script.src = RECAPTCHA_SRC + "&onload=__stampRecaptchaReady";
+    script.async = true;
+    script.defer = true;
+    script.onerror = () => reject(new Error("reCAPTCHA no disponible"));
+    document.head.appendChild(script);
+  });
+  return recaptchaReady;
+}
 
 // Reto local de respaldo: solo se usa mientras no haya site key configurada,
 // para poder desarrollar la pantalla. NO es protección real — cualquier script
@@ -151,57 +170,35 @@ function Captcha({ challenge, value, onChange, onRefresh, error, inputRef }) {
     </div>);
 }
 
-// Widget de Turnstile. Si el script no carga (red caída, bloqueador, o alguien
+// Widget de reCAPTCHA. Si el script no carga (red caída, bloqueador, o alguien
 // intentando esquivarlo) no hay token y el formulario no deja enviar: se falla
 // cerrado a propósito, en vez de degradar a una verificación más débil.
-function TurnstileField({ onToken, resetKey, error }) {
+function RecaptchaField({ onToken, resetKey, error }) {
   const boxRef = React.useRef(null);
   const widgetRef = React.useRef(null);
   const [failed, setFailed] = React.useState(false);
 
   React.useEffect(() => {
     let cancelled = false;
-
-    function render() {
-      if (cancelled || !boxRef.current || !window.turnstile || widgetRef.current !== null) return;
-      widgetRef.current = window.turnstile.render(boxRef.current, {
-        sitekey: TURNSTILE_SITE_KEY,
-        language: "es",
-        action: "login",
+    loadRecaptcha().
+    then(() => {
+      if (cancelled || !boxRef.current || widgetRef.current !== null) return;
+      widgetRef.current = window.grecaptcha.render(boxRef.current, {
+        sitekey: RECAPTCHA_SITE_KEY,
         callback: (token) => onToken(token),
         "expired-callback": () => onToken(""),
-        "timeout-callback": () => onToken(""),
         "error-callback": () => { onToken(""); setFailed(true); }
       });
-    }
-
-    if (window.turnstile) { render(); return () => { cancelled = true; }; }
-
-    let script = document.querySelector('script[data-turnstile]');
-    if (!script) {
-      script = document.createElement("script");
-      script.src = TURNSTILE_SRC;
-      script.async = true;
-      script.defer = true;
-      script.setAttribute("data-turnstile", "");
-      document.head.appendChild(script);
-    }
-    const onLoad = () => render();
-    const onErr = () => { if (!cancelled) setFailed(true); };
-    script.addEventListener("load", onLoad);
-    script.addEventListener("error", onErr);
-    return () => {
-      cancelled = true;
-      script.removeEventListener("load", onLoad);
-      script.removeEventListener("error", onErr);
-    };
+    }).
+    catch(() => { if (!cancelled) setFailed(true); });
+    return () => { cancelled = true; };
   }, []);
 
-  // Tras un intento fallido se pide un reto nuevo: un token de Turnstile es de
+  // Tras un intento fallido se pide un reto nuevo: el token de reCAPTCHA es de
   // un solo uso.
   React.useEffect(() => {
-    if (resetKey && widgetRef.current !== null && window.turnstile) {
-      window.turnstile.reset(widgetRef.current);
+    if (resetKey && widgetRef.current !== null && window.grecaptcha) {
+      window.grecaptcha.reset(widgetRef.current);
       onToken("");
     }
   }, [resetKey]);
@@ -209,7 +206,7 @@ function TurnstileField({ onToken, resetKey, error }) {
   return (
     <div className={"auth-field" + (error ? " is-error" : "")}>
       <span className="auth-label">Verificación</span>
-      <div className="auth-turnstile" ref={boxRef} />
+      <div className="auth-recaptcha" ref={boxRef} />
       {failed &&
         <span className="auth-error"><AlertIcon />No se pudo cargar la verificación. Recarga la página.</span>}
       {error && !failed && <span className="auth-error"><AlertIcon />{error}</span>}
@@ -292,10 +289,10 @@ function LoginPage() {
     }
     setLoading(true);
     // TODO: reemplazar por la llamada real al endpoint de autenticación.
-    // Enviar el token como "cf-turnstile-response" junto a las credenciales; el
+    // Enviar el token como "g-recaptcha-response" junto a las credenciales; el
     // servidor lo valida con siteverify antes de comprobar la contraseña.
     // Si la respuesta es un fallo, llamar a resetChallenge(): el token ya se
-    // consumió y Turnstile no acepta el mismo dos veces.
+    // consumió y reCAPTCHA no acepta el mismo dos veces.
     window.setTimeout(() => {
       setLoading(false);
       setView("success");
@@ -343,7 +340,7 @@ function LoginPage() {
     </Field>);
 
   const captchaField = CAPTCHA_REMOTO
-    ? <TurnstileField onToken={setToken} resetKey={resetKey} error={errors.captcha} />
+    ? <RecaptchaField onToken={setToken} resetKey={resetKey} error={errors.captcha} />
     : <Captcha
         challenge={challenge}
         value={captcha}

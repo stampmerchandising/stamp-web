@@ -21,40 +21,51 @@ por el formulario: satura la red o el servidor. Eso se corta antes de llegar a
 la aplicación, poniendo el dominio detrás de un WAF/CDN con protección DDoS y
 limitando peticiones por IP.
 
-## Turnstile
+## reCAPTCHA
 
-La pantalla usa [Cloudflare Turnstile](https://developers.cloudflare.com/turnstile/).
+La pantalla usa reCAPTCHA v2 de Google (la casilla "No soy un robot").
 Para activarlo:
 
-1. Crear el widget en el panel de Cloudflare y copiar la **site key**.
-2. Ponerla en `TURNSTILE_SITE_KEY`, al inicio de `page-login.jsx`.
-   Es pública y va en el frontend sin problema.
-3. Guardar la **secret key** en el servidor (variable de entorno).
+1. Entrar a <https://www.google.com/recaptcha/admin>, crear un sitio de tipo
+   **reCAPTCHA v2 → casilla "No soy un robot"** y registrar los dominios
+   (`stamp.com.pe` y `localhost` para pruebas).
+2. Copiar la **clave del sitio** a `RECAPTCHA_SITE_KEY`, al inicio de
+   `page-login.jsx`. Es pública y va en el frontend sin problema.
+3. Guardar la **clave secreta** en el servidor (variable de entorno).
    Nunca en el repositorio ni en el HTML.
 
-Mientras `TURNSTILE_SITE_KEY` esté vacía, la pantalla cae a un reto aritmético
+Mientras `RECAPTCHA_SITE_KEY` esté vacía, la pantalla cae a un reto aritmético
 local que sirve solo para desarrollar la interfaz. **No es protección**: se
 resuelve leyendo los dos números. No debe llegar así a producción.
 
-Si el script de Turnstile no carga, el formulario no deja enviar. Es
+Si el script de reCAPTCHA no carga, el formulario no deja enviar. Es
 intencional: fallar cerrado evita que baste con bloquear el script para
-esquivar la verificación.
+esquivar la verificación. Conviene tenerlo en cuenta, porque Google está
+bloqueado en algunas redes corporativas y en algunos países: ahí el login
+queda inaccesible.
 
 ### Validación en el servidor (obligatoria)
 
-El formulario manda el token en `cf-turnstile-response`. Sin este paso el
+El formulario manda el token en `g-recaptcha-response`. Sin este paso el
 widget es decorativo:
 
 ```
-POST https://challenges.cloudflare.com/turnstile/v0/siteverify
-  secret   = <secret key>
+POST https://www.google.com/recaptcha/api/siteverify
+  secret   = <clave secreta>
   response = <token recibido del formulario>
   remoteip = <IP del cliente>
 ```
 
 Rechazar el login si `success` es `false`. Cada token es de un solo uso y
-caduca a los ~5 minutos; si se reintenta, el frontend debe pedir uno nuevo con
+caduca a los ~2 minutos; si se reintenta, el frontend debe pedir uno nuevo con
 `resetChallenge()`.
+
+### Privacidad
+
+reCAPTCHA envía datos de navegación de los usuarios a Google, lo que tiene
+implicaciones de privacidad y de consentimiento de cookies. Si eso llega a ser
+un problema, Cloudflare Turnstile es equivalente en integración (token +
+siteverify) y no rastrea.
 
 ## Lo que hay que añadir en el backend
 
